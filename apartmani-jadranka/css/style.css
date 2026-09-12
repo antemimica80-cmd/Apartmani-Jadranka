@@ -271,9 +271,7 @@ section {
 }
 
 .lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  position: relative;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.6);
@@ -285,7 +283,10 @@ section {
   color: var(--color-text-light);
 }
 
-.lang-switch button {
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   background: none;
   border: none;
   padding: 0;
@@ -294,19 +295,55 @@ section {
   letter-spacing: 0.08em;
   color: inherit;
   cursor: pointer;
-  opacity: 0.65;
-  transition: opacity 0.2s ease;
 }
 
-.lang-switch button.active {
-  opacity: 1;
-  font-weight: 500;
-  color: var(--color-white);
+.lang-toggle::after {
+  content: '▾';
+  font-size: 0.6rem;
+  opacity: 0.7;
 }
 
-.site-header.scrolled .lang-switch button.active,
-.site-header.solid .lang-switch button.active {
+.lang-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 130px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-small);
+  z-index: 30;
+}
+
+.lang-menu.open {
+  display: block;
+}
+
+.lang-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 9px 18px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.lang-menu button:hover {
+  background-color: var(--color-sea-mist);
+}
+
+.lang-menu button.active {
   color: var(--color-sea-deep);
+  font-weight: 500;
 }
 
 .nav-toggle {
@@ -1754,12 +1791,13 @@ body.modal-open {
     margin-top: 8px;
   }
 
-  .nav-links .lang-switch button {
+  .nav-links .lang-toggle {
     color: inherit !important;
   }
 
-  .nav-links .lang-switch button.active {
-    color: var(--color-sea-deep) !important;
+  .nav-links .lang-menu {
+    left: 0;
+    right: auto;
   }
 
   .nav-backdrop {
