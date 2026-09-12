@@ -1948,6 +1948,7 @@ body.modal-open {
 @media (max-width: 520px) {
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .feature-card {
@@ -1955,14 +1956,10 @@ body.modal-open {
     align-items: flex-start;
     gap: 18px;
     text-align: left;
+    background-color: var(--color-stone);
     border-left: none;
-    border-top: 1px solid var(--color-sand-dark);
-    padding: 20px 4px;
-  }
-
-  .feature-card:first-child {
-    border-top: none;
-    padding-top: 0;
+    border-radius: var(--radius-lg);
+    padding: 22px 22px;
   }
 
   .feature-icon {
