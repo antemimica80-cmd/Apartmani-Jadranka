@@ -124,9 +124,11 @@
       });
   }
 
+  var DATE_LOCALE_BY_LANG = { hr: 'hr-HR', en: 'en-GB', de: 'de-DE', pl: 'pl-PL', cs: 'cs-CZ' };
+
   function fmtDate(date) {
     var lang = window.Jadranka ? window.Jadranka.getLang() : 'hr';
-    return date.toLocaleDateString(lang === 'hr' ? 'hr-HR' : 'en-GB');
+    return date.toLocaleDateString(DATE_LOCALE_BY_LANG[lang] || 'hr-HR');
   }
 
   function render() {
