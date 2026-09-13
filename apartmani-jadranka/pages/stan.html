@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
   <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/style.css?v=20260917">
+  <link rel="stylesheet" href="../css/style.css?v=20260918">
 </head>
 <body data-unit="stan">
 
@@ -26,9 +26,16 @@
         <li><a href="../index.html#mimice" data-i18n="nav.mimice">Mimice</a></li>
         <li><a href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
         <li class="lang-switch">
-          <button type="button" data-lang-btn="hr">HR</button>
-          <span aria-hidden="true">/</span>
-          <button type="button" data-lang-btn="en">EN</button>
+          <button type="button" class="lang-toggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="lang-current">HR</span>
+          </button>
+          <ul class="lang-menu" role="listbox">
+            <li role="option"><button type="button" data-lang-btn="hr">Hrvatski</button></li>
+            <li role="option"><button type="button" data-lang-btn="en">English</button></li>
+            <li role="option"><button type="button" data-lang-btn="de">Deutsch</button></li>
+            <li role="option"><button type="button" data-lang-btn="pl">Polski</button></li>
+            <li role="option"><button type="button" data-lang-btn="cs">Čeština</button></li>
+          </ul>
         </li>
       </ul>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -292,10 +299,10 @@
     </div>
   </footer>
 
-  <script src="../js/i18n.js?v=20260914"></script>
+  <script src="../js/i18n.js?v=20260918"></script>
   <script src="../js/main.js?v=20260910"></script>
   <script src="../js/gallery.js?v=20260910"></script>
-  <script src="../js/calendar.js?v=20260912"></script>
+  <script src="../js/calendar.js?v=20260918"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
