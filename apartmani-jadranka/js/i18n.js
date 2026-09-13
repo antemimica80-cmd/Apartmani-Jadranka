@@ -231,6 +231,17 @@
     'istok.pricing_cta': { hr: 'Kontaktirajte za cijene', en: 'Contact for Rates', de: 'Für Preise kontaktieren', pl: 'Skontaktuj się w sprawie cen', cs: 'Kontaktujte nás ohledně cen' },
     'istok.pricing_note': { hr: 'Bez naknada za rezervaciju — rezervirajte izravno kod naše obitelji.', en: 'No booking fees — reserve directly with our family.', de: 'Keine Buchungsgebühren — buchen Sie direkt bei unserer Familie.', pl: 'Bez opłat rezerwacyjnych — rezerwuj bezpośrednio u naszej rodziny.', cs: 'Žádné rezervační poplatky — rezervujte přímo u naší rodiny.' },
 
+    // --- Booking policy (shared by both unit pages) ---
+    'policy.title': { hr: 'Uvjeti rezervacije', en: 'Booking Policy', de: 'Buchungsbedingungen', pl: 'Zasady rezerwacji', cs: 'Podmínky rezervace' },
+    'policy.checkin_label': { hr: 'Dolazak', en: 'Check-in', de: 'Anreise', pl: 'Zameldowanie', cs: 'Příjezd' },
+    'policy.checkin_value': { hr: 'od 15:00', en: 'From 3:00 PM', de: 'Ab 15:00 Uhr', pl: 'Od 15:00', cs: 'Od 15:00' },
+    'policy.checkout_label': { hr: 'Odlazak', en: 'Check-out', de: 'Abreise', pl: 'Wymeldowanie', cs: 'Odjezd' },
+    'policy.checkout_value': { hr: 'do 10:00', en: 'Until 10:00 AM', de: 'Bis 10:00 Uhr', pl: 'Do 10:00', cs: 'Do 10:00' },
+    'policy.payment_label': { hr: 'Plaćanje', en: 'Payment', de: 'Zahlung', pl: 'Płatność', cs: 'Platba' },
+    'policy.payment_value': { hr: '30% akontacije prilikom rezervacije, ostatak bankovnom doznakom 30 dana prije dolaska.', en: 'A 30% deposit at booking, with the remaining balance due by bank transfer 30 days before arrival.', de: '30 % Anzahlung bei der Buchung, der Restbetrag ist 30 Tage vor Anreise per Banküberweisung fällig.', pl: '30% zaliczki przy rezerwacji, pozostała kwota przelewem bankowym 30 dni przed przyjazdem.', cs: '30% záloha při rezervaci, zbytek bankovním převodem 30 dní před příjezdem.' },
+    'policy.parking_label': { hr: 'Parking', en: 'Parking', de: 'Parkplatz', pl: 'Parking', cs: 'Parkování' },
+    'policy.parking_value': { hr: 'Besplatan, zajamčeno mjesto na posjedu.', en: 'Free, guaranteed on-site parking.', de: 'Kostenlos, garantierter Stellplatz auf dem Grundstück.', pl: 'Bezpłatny, gwarantowane miejsce na terenie posesji.', cs: 'Zdarma, zaručené parkovací místo v areálu.' },
+
     // --- Stan page ---
     'stan.breadcrumb': { hr: 'Početna', en: 'Home', de: 'Startseite', pl: 'Strona główna', cs: 'Domů' },
     'stan.tagline': { hr: 'Panoramski pogled na more i prostrana terasa.', en: 'Panoramic sea views and a spacious terrace.', de: 'Panorama-Meerblick und eine großzügige Terrasse.', pl: 'Panoramiczny widok na morze i przestronny taras.', cs: 'Panoramatický výhled na moře a prostorná terasa.' },
