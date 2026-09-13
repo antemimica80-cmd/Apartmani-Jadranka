@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=20260920">
+  <link rel="stylesheet" href="css/style.css?v=20260921">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -259,7 +259,11 @@
           <h3 class="host-name" data-i18n="contact.host_name">Jadranka</h3>
           <p class="host-role" data-i18n="contact.host_role">Your Host</p>
           <p class="host-blurb" data-i18n="contact.host_blurb">We run Apartmani Jadranka as a family and are always happy to answer your questions about the apartments and your stay.</p>
-          <button type="button" class="btn btn-primary" id="message-host-btn" data-i18n="contact.message_host_cta">Message Host</button>
+          <div class="host-contact-links">
+            <a href="tel:+385959037604" class="host-contact-btn" data-i18n="contact.phone_cta">Phone</a>
+            <a href="https://wa.me/385959037604" target="_blank" rel="noopener" class="host-contact-btn" data-i18n="contact.whatsapp_cta">WhatsApp</a>
+            <a href="mailto:antemimica80@gmail.com" class="host-contact-btn" data-i18n="contact.email_cta">Email</a>
+          </div>
         </div>
       </div>
 
@@ -272,30 +276,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ============ MESSAGE HOST MODAL ============ -->
-  <div class="modal-overlay" id="host-message-modal" hidden>
-    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="host-modal-title">
-      <button type="button" class="modal-close" id="host-modal-close" data-i18n-aria-label="contact.modal_close" aria-label="Close">&times;</button>
-      <h3 id="host-modal-title" data-i18n="contact.modal_title">Message Ante</h3>
-      <form id="host-message-form" novalidate>
-        <div class="form-group">
-          <label for="host-msg-name" data-i18n="contact.form_name">Full Name</label>
-          <input type="text" id="host-msg-name" name="name" data-i18n-placeholder="contact.form_name_ph" placeholder="Your name" required>
-        </div>
-        <div class="form-group">
-          <label for="host-msg-email" data-i18n="contact.form_email">Email</label>
-          <input type="email" id="host-msg-email" name="email" placeholder="you@example.com" required>
-        </div>
-        <div class="form-group">
-          <label for="host-msg-message" data-i18n="contact.form_message">Message</label>
-          <textarea id="host-msg-message" name="message" data-i18n-placeholder="contact.form_message_ph" placeholder="Tell us about your stay — number of guests, dates, special requests, etc." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" data-i18n="contact.form_submit">Send Message</button>
-        <div id="host-message-status" class="form-status" role="status"></div>
-      </form>
-    </div>
-  </div>
 
   <footer class="site-footer">
     <div class="container">
@@ -310,8 +290,8 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js?v=20260918"></script>
-  <script src="js/main.js?v=20260910"></script>
+  <script src="js/i18n.js?v=20260921"></script>
+  <script src="js/main.js?v=20260921"></script>
   <script src="js/gallery.js?v=20260911"></script>
   <script src="js/reviews.js?v=20260911"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
