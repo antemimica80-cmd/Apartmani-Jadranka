@@ -45,7 +45,7 @@
     'home.units.rooms': { hr: '2 spavaće sobe · 2 kupaonice', en: '2 bedrooms · 2 bathrooms', de: '2 Schlafzimmer · 2 Badezimmer', pl: '2 sypialnie · 2 łazienki', cs: '2 ložnice · 2 koupelny' },
     'home.units.stan_link': { hr: 'Pogledajte detalje →', en: 'View Details →', de: 'Details ansehen →', pl: 'Zobacz szczegóły →', cs: 'Zobrazit podrobnosti →' },
     'home.units.cta': { hr: 'Pošalji upit', en: 'Send Inquiry', de: 'Anfrage senden', pl: 'Wyślij zapytanie', cs: 'Odeslat poptávku' },
-    'home.units.istok_desc': { hr: 'Prostran i moderan apartman od 80 m² u srcu Mimica, na koracima od plaže.', en: 'A spacious, modern 80 m² apartment in the heart of Mimice, steps from the beach.', de: 'Ein geräumiges, modernes 80-m²-Apartment im Herzen von Mimice, nur wenige Schritte vom Strand entfernt.', pl: 'Przestronny, nowoczesny apartament o powierzchni 80 m² w sercu Mimic, tuż przy plaży.', cs: 'Prostorný, moderní apartmán o rozloze 80 m² v srdci Mimic, jen pár kroků od pláže.' },
+    'home.units.istok_desc': { hr: 'Prostran i moderan apartman od 80 m² u srcu Mimica, samo nekoliko koraka od plaže.', en: 'A spacious, modern 80 m² apartment in the heart of Mimice, steps from the beach.', de: 'Ein geräumiges, modernes 80-m²-Apartment im Herzen von Mimice, nur wenige Schritte vom Strand entfernt.', pl: 'Przestronny, nowoczesny apartament o powierzchni 80 m² w sercu Mimic, tuż przy plaży.', cs: 'Prostorný, moderní apartmán o rozloze 80 m² v srdci Mimic, jen pár kroků od pláže.' },
     'home.units.istok_meta1': { hr: '4 gosta', en: 'Sleeps 4', de: '4 Gäste', pl: '4 osoby', cs: '4 hosté' },
     'home.units.istok_meta2': { hr: 'Balkon', en: 'Balcony', de: 'Balkon', pl: 'Balkon', cs: 'Balkon' },
     'home.units.istok_link': { hr: 'Pogledajte detalje →', en: 'View Details →', de: 'Details ansehen →', pl: 'Zobacz szczegóły →', cs: 'Zobrazit podrobnosti →' },
@@ -138,7 +138,7 @@
 
     // --- Istok page ---
     'istok.breadcrumb': { hr: 'Početna', en: 'Home', de: 'Startseite', pl: 'Strona główna', cs: 'Domů' },
-    'istok.tagline': { hr: '80 m² udobnog prostora u srcu Mimica, na koracima od plaže.', en: '80 m² of comfortable space in the heart of Mimice, steps from the beach.', de: '80 m² komfortabler Wohnraum im Herzen von Mimice, nur wenige Schritte vom Strand entfernt.', pl: '80 m² komfortowej przestrzeni w sercu Mimic, tuż przy plaży.', cs: '80 m² pohodlného prostoru v srdci Mimic, jen pár kroků od pláže.' },
+    'istok.tagline': { hr: '80 m² udobnog prostora u srcu Mimica, samo nekoliko koraka od plaže.', en: '80 m² of comfortable space in the heart of Mimice, steps from the beach.', de: '80 m² komfortabler Wohnraum im Herzen von Mimice, nur wenige Schritte vom Strand entfernt.', pl: '80 m² komfortowej przestrzeni w sercu Mimic, tuż przy plaży.', cs: '80 m² pohodlného prostoru v srdci Mimic, jen pár kroků od pláže.' },
     'istok.gallery.living': { hr: 'Dnevni boravak', en: 'Living room', de: 'Wohnzimmer', pl: 'Salon', cs: 'Obývací pokoj' },
     'istok.gallery.bedroom1': { hr: 'Spavaća soba 1', en: 'Bedroom 1', de: 'Schlafzimmer 1', pl: 'Sypialnia 1', cs: 'Ložnice 1' },
     'istok.gallery.bedroom2': { hr: 'Spavaća soba 2', en: 'Bedroom 2', de: 'Schlafzimmer 2', pl: 'Sypialnia 2', cs: 'Ložnice 2' },
