@@ -1,6 +1,6 @@
 name: Sync Airbnb Calendars
 
-# Refreshes apartmani-jadranka/data/availability-stan.json and
+# Refreshes data/availability-stan.json and
 # availability-istok.json once a day from each apartment's Airbnb iCal
 # export, so the booking calendars on the site always reflect current
 # availability without any manual updates.
@@ -43,7 +43,7 @@ jobs:
       - name: Fetch Stan calendar
         env:
           AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_STAN }}
-          OUTPUT_PATH: apartmani-jadranka/data/availability-stan.json
+          OUTPUT_PATH: data/availability-stan.json
         run: |
           if [ -z "$AIRBNB_ICAL_URL" ]; then
             echo "AIRBNB_ICAL_STAN secret is not set yet — skipping Stan sync."
@@ -54,7 +54,7 @@ jobs:
       - name: Fetch Istok calendar
         env:
           AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_ISTOK }}
-          OUTPUT_PATH: apartmani-jadranka/data/availability-istok.json
+          OUTPUT_PATH: data/availability-istok.json
         run: |
           if [ -z "$AIRBNB_ICAL_URL" ]; then
             echo "AIRBNB_ICAL_ISTOK secret is not set yet — skipping Istok sync."
@@ -67,11 +67,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- apartmani-jadranka/data/availability-stan.json apartmani-jadranka/data/availability-istok.json; then
+          if git diff --quiet -- data/availability-stan.json data/availability-istok.json; then
             echo "No changes to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
-            git add apartmani-jadranka/data/availability-stan.json apartmani-jadranka/data/availability-istok.json
+            git add data/availability-stan.json data/availability-istok.json
             git commit -m "Sync Airbnb availability"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Fetches an Airbnb iCal export and converts its VEVENT blocks into a flat
 // list of blocked YYYY-MM-DD dates, written to a JSON file that the site's
-// calendar widget reads (see apartmani-jadranka/js/calendar.js).
+// calendar widget reads (see js/calendar.js).
 //
 // Usage: AIRBNB_ICAL_URL=<ical-url> OUTPUT_PATH=<path> node scripts/sync-airbnb-ical.mjs
 
