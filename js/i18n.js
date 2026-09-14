@@ -31,6 +31,7 @@
 
     // --- Homepage: Hero ---
     'home.hero.eyebrow': { hr: 'Mimice · Dalmatinska obala', en: 'Mimice · Dalmatian Coast', de: 'Mimice · Dalmatinische Küste', pl: 'Mimice · Wybrzeże Dalmacji', cs: 'Mimice · Dalmatské pobřeží' },
+    'weather.badge_label': { hr: 'Trenutno vrijeme i temperatura u Mimicama', en: 'Current time and temperature in Mimice', de: 'Aktuelle Zeit und Temperatur in Mimice', pl: 'Aktualny czas i temperatura w Mimicach', cs: 'Aktuální čas a teplota v Mimicích' },
     'home.hero.headline': { hr: 'Mirna jutra, beskrajan pogled na more', en: 'Slow Mornings, Endless Sea Views', de: 'Ruhige Morgen, endloser Meerblick', pl: 'Spokojne poranki, niekończący się widok na morze', cs: 'Klidná rána, nekonečný výhled na moře' },
     'home.hero.subtitle': { hr: 'Obiteljski apartmani na Jadranu, nekoliko koraka od mora.', en: 'Family-run apartments on the Adriatic, steps from the sea.', de: 'Familiengeführte Apartments an der Adria, nur wenige Schritte vom Meer entfernt.', pl: 'Rodzinne apartamenty nad Adriatykiem, tuż przy morzu.', cs: 'Rodinné apartmány na Jadranu, jen pár kroků od moře.' },
 
