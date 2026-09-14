@@ -1810,6 +1810,68 @@ body.modal-open {
   vertical-align: middle;
 }
 
+.footer-legal-id {
+  font-size: 0.72rem;
+  opacity: 0.6;
+  margin-top: 14px;
+}
+
+.footer-links {
+  margin-top: 16px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.footer-links .dot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+/* ===========================================================
+   Legal pages (Privacy Policy, Terms of Use)
+   =========================================================== */
+
+.legal-content {
+  background-color: var(--color-white);
+}
+
+.legal-article {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.legal-article h2 {
+  font-size: 1.25rem;
+  color: var(--color-sea-deep);
+  margin-top: 44px;
+  margin-bottom: 14px;
+}
+
+.legal-article h2:first-child {
+  margin-top: 0;
+}
+
+.legal-article p {
+  color: var(--color-text-light);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
 /* ===========================================================
    Responsive
    =========================================================== */
