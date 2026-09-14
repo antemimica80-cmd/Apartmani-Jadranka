@@ -30,7 +30,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=20260922">
+  <link rel="stylesheet" href="css/style.css?v=20260923">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -98,6 +98,12 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-photo" style="background-image: url('images/mimice-hero.jpg?v=20260911');" aria-hidden="true"></div>
+    <div class="weather-badge" id="weather-badge" data-i18n-aria-label="weather.badge_label" aria-label="Current time and temperature in Mimice" aria-live="polite" style="display: none;">
+      <span class="weather-icon" id="weather-icon" aria-hidden="true"></span>
+      <span class="weather-temp" id="weather-temp"></span>
+      <span class="dot" aria-hidden="true"></span>
+      <span class="weather-time" id="weather-time"></span>
+    </div>
     <div class="hero-content">
       <p class="hero-eyebrow" data-i18n="home.hero.eyebrow">Mimice · Dalmatian Coast</p>
       <h1 data-i18n="home.hero.headline">Slow Mornings, Endless Sea Views</h1>
@@ -320,8 +326,8 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js?v=20260922"></script>
-  <script src="js/main.js?v=20260921"></script>
+  <script src="js/i18n.js?v=20260923"></script>
+  <script src="js/main.js?v=20260923"></script>
   <script src="js/gallery.js?v=20260911"></script>
   <script src="js/reviews.js?v=20260911"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
