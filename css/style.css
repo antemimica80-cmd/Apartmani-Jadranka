@@ -1114,17 +1114,6 @@ body.lightbox-locked {
   margin-bottom: 6px;
 }
 
-.amenities-heading-not-included {
-  color: var(--color-text-light);
-}
-
-.amenities-list-not-included li {
-  color: var(--color-text-light);
-  text-decoration: line-through;
-  text-decoration-color: var(--color-sand-dark);
-  border-bottom-color: var(--color-sand-dark);
-}
-
 /* ===========================================================
    Availability & Pricing (calendar + booking summary)
    =========================================================== */
