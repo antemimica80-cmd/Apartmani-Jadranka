@@ -92,7 +92,7 @@
     'contact.host_blurb': { hr: 'Obiteljski vodimo apartmane Jadranka i rado ćemo odgovoriti na sva vaša pitanja o smještaju i dolasku.', en: 'We run Apartmani Jadranka as a family and are always happy to answer your questions about the apartments and your stay.', de: 'Wir führen Apartmani Jadranka als Familie und beantworten gerne alle Ihre Fragen zu den Apartments und Ihrer Anreise.', pl: 'Prowadzimy Apartmani Jadranka jako rodzina i zawsze chętnie odpowiemy na wszystkie pytania dotyczące apartamentów i Twojego przyjazdu.', cs: 'Apartmány Jadranka vedeme jako rodina a rádi zodpovíme veškeré vaše dotazy ohledně apartmánů a vašeho příjezdu.' },
     'contact.phone_cta': { hr: 'Telefon', en: 'Phone', de: 'Telefon', pl: 'Telefon', cs: 'Telefon' },
     'contact.whatsapp_cta': { hr: 'WhatsApp', en: 'WhatsApp', de: 'WhatsApp', pl: 'WhatsApp', cs: 'WhatsApp' },
-    'contact.email_cta': { hr: 'E-mail', en: 'Email', de: 'E-Mail', pl: 'E-mail', cs: 'E-mail' },
+    'contact.inquiry_cta': { hr: 'Pošalji upit', en: 'Send Inquiry', de: 'Anfrage senden', pl: 'Wyślij zapytanie', cs: 'Odeslat poptávku' },
     'contact.form_name': { hr: 'Ime i prezime', en: 'Full Name', de: 'Vor- und Nachname', pl: 'Imię i nazwisko', cs: 'Celé jméno' },
     'contact.form_name_ph': { hr: 'Vaše ime', en: 'Your name', de: 'Ihr Name', pl: 'Twoje imię', cs: 'Vaše jméno' },
     'contact.form_email': { hr: 'Email', en: 'Email', de: 'E-Mail', pl: 'E-mail', cs: 'E-mail' },
