@@ -182,8 +182,7 @@
     'istok.cat.bathroom': { hr: 'Kupaonica', en: 'Bathroom', de: 'Badezimmer', pl: 'Łazienka', cs: 'Koupelna' },
     'istok.cat.bathroom.1': { hr: 'Fen za kosu', en: 'Hair dryer', de: 'Föhn', pl: 'Suszarka do włosów', cs: 'Fén' },
     'istok.cat.bathroom.2': { hr: 'Sredstva za čišćenje', en: 'Cleaning products', de: 'Reinigungsmittel', pl: 'Środki czystości', cs: 'Čisticí prostředky' },
-    'istok.cat.bathroom.3': { hr: 'Šampon', en: 'Shampoo', de: 'Shampoo', pl: 'Szampon', cs: 'Šampon' },
-    'istok.cat.bathroom.4': { hr: 'Topla voda', en: 'Hot water', de: 'Warmwasser', pl: 'Ciepła woda', cs: 'Teplá voda' },
+    'istok.cat.bathroom.3': { hr: 'Topla voda', en: 'Hot water', de: 'Warmwasser', pl: 'Ciepła woda', cs: 'Teplá voda' },
 
     'istok.cat.bedroom': { hr: 'Spavaća soba i rublje', en: 'Bedroom & Laundry', de: 'Schlafzimmer & Wäsche', pl: 'Sypialnia i pranie', cs: 'Ložnice a prádlo' },
     'istok.cat.bedroom.1': { hr: 'Besplatna perilica rublja (u zgradi)', en: 'Free washer (in building)', de: 'Kostenlose Waschmaschine (im Gebäude)', pl: 'Bezpłatna pralka (w budynku)', cs: 'Bezplatná pračka (v budově)' },
@@ -220,7 +219,7 @@
     'istok.cat.services': { hr: 'Usluge', en: 'Services', de: 'Services', pl: 'Usługi', cs: 'Služby' },
     'istok.cat.services.1': { hr: 'Dopušteno ostavljanje prtljage', en: 'Luggage drop-off allowed', de: 'Gepäckaufbewahrung möglich', pl: 'Możliwość pozostawienia bagażu', cs: 'Možnost úschovy zavazadel' },
     'istok.cat.services.2': { hr: 'Dopušten dugotrajni boravak (28+ noćenja)', en: 'Long-term stays allowed (28+ nights)', de: 'Langzeitaufenthalte möglich (28+ Nächte)', pl: 'Możliwy długi pobyt (28+ nocy)', cs: 'Umožněn dlouhodobý pobyt (28+ nocí)' },
-    'istok.cat.services.3': { hr: 'Samostalni check-in', en: 'Self check-in', de: 'Selbständiger Check-in', pl: 'Samodzielne zameldowanie', cs: 'Samostatný check-in' },
+    'istok.cat.services.3': { hr: 'Osobni doček domaćice s predajom ključa', en: 'Personal welcome and key handover on arrival', de: 'Persönlicher Empfang mit Schlüsselübergabe', pl: 'Osobiste powitanie i przekazanie kluczy', cs: 'Osobní přivítání s předáním klíčů' },
     'istok.cat.services.4': { hr: 'Osoblje dostupno 24 sata', en: 'Staff available 24 hours', de: 'Personal 24 Stunden erreichbar', pl: 'Personel dostępny 24 godziny', cs: 'Personál k dispozici 24 hodin' },
 
     'istok.not_included_heading': { hr: 'Nije uključeno', en: 'Not Included', de: 'Nicht enthalten', pl: 'Nie wliczone', cs: 'Není zahrnuto' },
@@ -272,8 +271,7 @@
 
     'stan.cat.bathroom': { hr: 'Kupaonica', en: 'Bathroom', de: 'Badezimmer', pl: 'Łazienka', cs: 'Koupelna' },
     'stan.cat.bathroom.1': { hr: 'Sušilo za kosu', en: 'Hair dryer', de: 'Föhn', pl: 'Suszarka do włosów', cs: 'Fén' },
-    'stan.cat.bathroom.2': { hr: 'Šampon', en: 'Shampoo', de: 'Shampoo', pl: 'Szampon', cs: 'Šampon' },
-    'stan.cat.bathroom.3': { hr: 'Topla voda', en: 'Hot water', de: 'Warmwasser', pl: 'Ciepła woda', cs: 'Teplá voda' },
+    'stan.cat.bathroom.2': { hr: 'Topla voda', en: 'Hot water', de: 'Warmwasser', pl: 'Ciepła woda', cs: 'Teplá voda' },
 
     'stan.cat.bedroom': { hr: 'Spavaća soba i rublje', en: 'Bedroom & Linens', de: 'Schlafzimmer & Wäsche', pl: 'Sypialnia i pościel', cs: 'Ložnice a prádlo' },
     'stan.cat.bedroom.1': { hr: 'Perilica rublja', en: 'Washing machine', de: 'Waschmaschine', pl: 'Pralka', cs: 'Pračka' },
@@ -304,7 +302,7 @@
     'stan.cat.other.1': { hr: 'Besplatan parking u sklopu objekta', en: 'Free parking on premises', de: 'Kostenloser Parkplatz auf dem Grundstück', pl: 'Bezpłatny parking na miejscu', cs: 'Bezplatné parkování v areálu' },
     'stan.cat.other.2': { hr: 'Moguće ostaviti prtljagu', en: 'Luggage drop-off allowed', de: 'Gepäckaufbewahrung möglich', pl: 'Możliwość pozostawienia bagażu', cs: 'Možnost úschovy zavazadel' },
     'stan.cat.other.3': { hr: 'Boravak 28+ dana moguć', en: 'Long-term stays allowed (28+ nights)', de: 'Langzeitaufenthalte möglich (28+ Nächte)', pl: 'Możliwy długi pobyt (28+ nocy)', cs: 'Umožněn dlouhodobý pobyt (28+ nocí)' },
-    'stan.cat.other.4': { hr: 'Samostalni dolazak (self check-in)', en: 'Self check-in', de: 'Selbständiger Check-in', pl: 'Samodzielne zameldowanie', cs: 'Samostatný check-in' },
+    'stan.cat.other.4': { hr: 'Osobni doček domaćice s predajom ključa', en: 'Personal welcome and key handover on arrival', de: 'Persönlicher Empfang mit Schlüsselübergabe', pl: 'Osobiste powitanie i przekazanie kluczy', cs: 'Osobní přivítání s předáním klíčů' },
     'stan.cat.other.5': { hr: 'Osoblje dostupno 0-24', en: 'Staff available 24 hours', de: 'Personal 24 Stunden erreichbar', pl: 'Personel dostępny 24 godziny', cs: 'Personál k dispozici 24 hodin' },
 
     // --- Stan: availability & pricing ---
