@@ -313,6 +313,7 @@
     'calendar.avail.next': { hr: 'Sljedeći mjesec', en: 'Next month', de: 'Nächster Monat', pl: 'Następny miesiąc', cs: 'Další měsíc' },
     'calendar.avail.prompt_checkin': { hr: 'Odaberite datum dolaska', en: 'Select a check-in date', de: 'Anreisedatum auswählen', pl: 'Wybierz datę przyjazdu', cs: 'Vyberte datum příjezdu' },
     'calendar.avail.prompt_checkout': { hr: 'Odaberite datum odlaska', en: 'Select a check-out date', de: 'Abreisedatum auswählen', pl: 'Wybierz datę wyjazdu', cs: 'Vyberte datum odjezdu' },
+    'calendar.avail.prompt_checkout_min': { hr: 'Odaberite datum odlaska · minimalno {min} noćenja', en: 'Select a check-out date · {min}-night minimum', de: 'Abreisedatum auswählen · Mindestaufenthalt {min} Nächte', pl: 'Wybierz datę wyjazdu · minimalny pobyt {min} noce', cs: 'Vyberte datum odjezdu · minimální pobyt {min} nocí' },
     'calendar.avail.nights': { hr: 'noćenja', en: 'nights', de: 'Nächte', pl: 'noce', cs: 'nocí' },
     'calendar.avail.price_per_night': { hr: 'Cijena po noći', en: 'Price per night', de: 'Preis pro Nacht', pl: 'Cena za noc', cs: 'Cena za noc' },
     'calendar.avail.total': { hr: 'Ukupno', en: 'Total', de: 'Gesamt', pl: 'Razem', cs: 'Celkem' },

@@ -178,7 +178,17 @@
       var past = isPast(date);
       var blocked = isBlocked(date);
 
-      if (!past && !blocked) {
+      // Once a check-in is picked (and before a check-out is), grey out
+      // dates that fall short of that check-in's minimum-stay requirement —
+      // mirrors the "N-night minimum" behavior guests know from Airbnb.
+      var belowMin = false;
+      if (!past && !blocked && state.checkin && !state.checkout && date > state.checkin) {
+        var minCheckoutDate = new Date(state.checkin);
+        minCheckoutDate.setDate(minCheckoutDate.getDate() + minNightsForDate(state.checkin));
+        belowMin = date < minCheckoutDate;
+      }
+
+      if (!past && !blocked && !belowMin) {
         var priceEl = document.createElement('span');
         priceEl.className = 'day-price';
         priceEl.textContent = state.pricing.currency + priceForDate(date);
@@ -187,6 +197,9 @@
 
       if (past || blocked) {
         btn.classList.add('unavailable');
+        btn.disabled = true;
+      } else if (belowMin) {
+        btn.classList.add('below-min');
         btn.disabled = true;
       } else {
         btn.addEventListener('click', function () { handleDayClick(date); });
@@ -261,7 +274,8 @@
     }
 
     if (!state.checkout) {
-      content.innerHTML = '<p class="booking-prompt">' + t('calendar.avail.prompt_checkout') + '</p>';
+      var minForCheckin = minNightsForDate(state.checkin);
+      content.innerHTML = '<p class="booking-prompt">' + t('calendar.avail.prompt_checkout_min', { min: minForCheckin }) + '</p>';
       clearBtn.style.display = '';
       form.style.display = 'none';
       return;
