@@ -30,7 +30,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=20260926">
+  <link rel="stylesheet" href="css/style.css?v=20260927">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -292,8 +292,29 @@
           <div class="host-contact-links">
             <a href="tel:+385959037604" class="host-contact-btn" data-i18n="contact.phone_cta">Phone</a>
             <a href="https://wa.me/385959037604" target="_blank" rel="noopener" class="host-contact-btn" data-i18n="contact.whatsapp_cta">WhatsApp</a>
-            <a href="mailto:antemimica80@gmail.com" class="host-contact-btn" data-i18n="contact.email_cta">Email</a>
+            <button type="button" class="host-contact-btn" id="host-email-toggle" aria-expanded="false" aria-controls="host-email-form" data-i18n="contact.email_cta">Email</button>
           </div>
+
+          <form id="host-email-form" class="inquiry-form host-email-form" action="https://formspree.io/f/xjyvnqla" method="POST" style="display: none;">
+            <input type="text" name="_gotcha" style="display: none;" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_subject" value="New message from mimice.hr">
+
+            <div class="form-group">
+              <label for="host-email-name" data-i18n="contact.form_name">Full Name</label>
+              <input type="text" id="host-email-name" name="name" data-i18n-placeholder="contact.form_name_ph" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="host-email-email" data-i18n="contact.form_email">Email</label>
+              <input type="email" id="host-email-email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="host-email-message" data-i18n="contact.form_message">Message</label>
+              <textarea id="host-email-message" name="message" data-i18n-placeholder="contact.host_form_message_ph" placeholder="How can we help?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" data-i18n="contact.host_form_submit">Send Message</button>
+            <div id="host-email-status" class="form-status" role="status"></div>
+          </form>
         </div>
       </div>
 
@@ -326,8 +347,8 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js?v=20260926"></script>
-  <script src="js/main.js?v=20260923"></script>
+  <script src="js/i18n.js?v=20260927"></script>
+  <script src="js/main.js?v=20260927"></script>
   <script src="js/gallery.js?v=20260911"></script>
   <script src="js/reviews.js?v=20260911"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
