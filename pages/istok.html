@@ -347,7 +347,14 @@
           <p class="pricing-note" data-i18n="calendar.avail.note">Prices are indicative; final price is confirmed at booking.</p>
 
           <!-- Shown only once valid, available dates meeting the season's minimum stay are selected (see js/calendar.js) -->
-          <form id="availability-inquiry-form" class="inquiry-form" novalidate style="display: none;">
+          <form id="availability-inquiry-form" class="inquiry-form" action="https://formspree.io/f/mljdrgpj" method="POST" novalidate style="display: none;">
+            <input type="text" name="_gotcha" style="display: none;" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_subject" value="">
+            <input type="hidden" name="unit" value="">
+            <input type="hidden" name="checkin" value="">
+            <input type="hidden" name="checkout" value="">
+            <input type="hidden" name="nights" value="">
+            <input type="hidden" name="total_price" value="">
             <h3 class="inquiry-form-title" data-i18n="calendar.avail.inquiry_title">Send an Inquiry for These Dates</h3>
 
             <div class="form-group">
@@ -412,10 +419,10 @@
     </div>
   </footer>
 
-  <script src="../js/i18n.js?v=20260928"></script>
+  <script src="../js/i18n.js?v=20260929"></script>
   <script src="../js/main.js?v=20260927"></script>
   <script src="../js/gallery.js?v=20260910"></script>
-  <script src="../js/calendar.js?v=20260926"></script>
+  <script src="../js/calendar.js?v=20260929"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
