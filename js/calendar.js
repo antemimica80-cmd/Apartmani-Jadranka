@@ -314,14 +314,26 @@
       '<div class="booking-line total"><span>' + t('calendar.avail.total') + '</span><span>' + state.pricing.currency + total + '</span></div>';
     clearBtn.style.display = '';
 
-    // Reveal the inquiry form and stash the computed values for submit —
-    // the form's own fields are left untouched so in-progress typing
-    // survives further calendar clicks.
+    // Reveal the inquiry form and fill its hidden fields with the computed
+    // booking details, so they're submitted alongside the visible fields —
+    // the visible fields are left untouched so in-progress typing survives
+    // further calendar clicks.
     form.style.display = '';
-    form.dataset.checkinDisplay = fmtDate(state.checkin);
-    form.dataset.checkoutDisplay = fmtDate(state.checkout);
-    form.dataset.nights = nights;
-    form.dataset.total = total;
+    var unitName = t(state.unit + '.display_name');
+    var checkinDisplay = fmtDate(state.checkin);
+    var checkoutDisplay = fmtDate(state.checkout);
+    var totalDisplay = state.pricing.currency + total;
+    setHiddenField(form, 'unit', unitName);
+    setHiddenField(form, 'checkin', checkinDisplay);
+    setHiddenField(form, 'checkout', checkoutDisplay);
+    setHiddenField(form, 'nights', nights);
+    setHiddenField(form, 'total_price', totalDisplay);
+    setHiddenField(form, '_subject', t('calendar.avail.email_subject', { unit: unitName, checkin: checkinDisplay, checkout: checkoutDisplay }));
+  }
+
+  function setHiddenField(form, name, value) {
+    var field = form.elements[name];
+    if (field) field.value = value;
   }
 
   function initInquiryForm() {
@@ -336,9 +348,6 @@
       var name = form.elements['name'].value.trim();
       var email = form.elements['email'].value.trim();
       var phone = form.elements['phone'].value.trim();
-      var adults = form.elements['adults'].value || '1';
-      var children = form.elements['children'].value || '0';
-      var message = form.elements['message'].value.trim();
 
       if (!name || !email || !phone) {
         status.textContent = t('calendar.avail.form_error');
@@ -346,36 +355,28 @@
         return;
       }
 
-      var checkin = form.dataset.checkinDisplay;
-      var checkout = form.dataset.checkoutDisplay;
-      var nights = form.dataset.nights;
-      var total = form.dataset.total;
+      status.textContent = t('calendar.avail.form_sending');
+      status.className = 'form-status visible sending';
 
-      var subject = t('calendar.avail.email_subject', { unit: t(state.unit + '.display_name'), checkin: checkin, checkout: checkout });
-
-      var bodyLines = [
-        t('calendar.avail.email_label_name') + ': ' + name,
-        t('calendar.avail.email_label_email') + ': ' + email,
-        t('calendar.avail.email_label_phone') + ': ' + phone,
-        t('calendar.avail.email_label_checkin') + ': ' + checkin,
-        t('calendar.avail.email_label_checkout') + ': ' + checkout,
-        t('calendar.avail.email_label_nights') + ': ' + nights,
-        t('calendar.avail.email_label_adults') + ': ' + adults,
-        t('calendar.avail.email_label_children') + ': ' + children,
-        t('calendar.avail.email_label_total') + ': ' + state.pricing.currency + total,
-        '',
-        t('calendar.avail.email_label_message') + ':',
-        message || '-'
-      ];
-
-      var mailto = 'mailto:antemimica80@gmail.com' +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(bodyLines.join('\n'));
-
-      window.location.href = mailto;
-
-      status.textContent = '';
-      status.className = 'form-status';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (response) {
+          if (response.ok) {
+            status.textContent = t('calendar.avail.form_success');
+            status.className = 'form-status visible success';
+            form.reset();
+          } else {
+            status.textContent = t('calendar.avail.form_send_error');
+            status.className = 'form-status visible error';
+          }
+        })
+        .catch(function () {
+          status.textContent = t('calendar.avail.form_send_error');
+          status.className = 'form-status visible error';
+        });
     });
   }
 
