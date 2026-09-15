@@ -1075,12 +1075,23 @@ body.lightbox-locked {
   border-bottom: 1px solid var(--color-sand-dark);
 }
 
-/* --- Categorized amenities (Stan, Istok) --- */
+/* --- Categorized amenities (Stan, Istok) ---
+   Uses CSS multi-column rather than a 2-column grid: a grid pairs each
+   category with whatever sits next to it in DOM order and stretches both
+   to match the taller one's height, which looks fine when categories have
+   similar item counts but leaves a large empty gap under a short category
+   next to a long one (e.g. a 2-item "Pogled" next to a 15-item "Kuhinja").
+   Columns let each category size to its own content and flow to balance
+   the two columns overall. */
 .amenities-categories {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 36px 40px;
+  columns: 2;
+  column-gap: 40px;
   margin-top: 24px;
+}
+
+.amenity-category {
+  break-inside: avoid;
+  margin-bottom: 36px;
 }
 
 .amenity-category-title {
@@ -2062,8 +2073,11 @@ body.modal-open {
   }
 
   .amenities-categories {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    columns: 1;
+  }
+
+  .amenity-category {
+    margin-bottom: 28px;
   }
 
   .availability-grid {
