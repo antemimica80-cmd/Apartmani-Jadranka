@@ -1695,6 +1695,10 @@ body.lightbox-locked {
   border-color: var(--color-sea);
 }
 
+.host-email-form {
+  text-align: left;
+}
+
 /* ===========================================================
    Modal (shared: guest-review "read more" dialog)
    =========================================================== */

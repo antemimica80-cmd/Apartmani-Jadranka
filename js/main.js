@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   initHeaderScroll();
   initScrollReveal();
   initWeatherBadge();
+  initHostEmailForm();
 });
 
 function initNavToggle() {
@@ -136,4 +137,55 @@ function initWeatherBadge() {
   fetchWeather();
   setInterval(updateClock, 30000);
   setInterval(fetchWeather, 15 * 60 * 1000);
+}
+
+// "Email" button in the Contact section — toggles a real contact form that
+// posts to Formspree via fetch(), so the page never navigates away and the
+// user's default mail app is never required.
+function initHostEmailForm() {
+  var toggle = document.getElementById('host-email-toggle');
+  var form = document.getElementById('host-email-form');
+  var status = document.getElementById('host-email-status');
+  if (!toggle || !form || !status) return;
+
+  toggle.addEventListener('click', function () {
+    var isOpen = form.style.display !== 'none';
+    if (isOpen) {
+      form.style.display = 'none';
+      toggle.setAttribute('aria-expanded', 'false');
+    } else {
+      form.style.display = '';
+      toggle.setAttribute('aria-expanded', 'true');
+      var nameInput = document.getElementById('host-email-name');
+      if (nameInput) nameInput.focus();
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var t = window.Jadranka ? window.Jadranka.t : function (key) { return key; };
+
+    status.textContent = t('contact.host_form_sending');
+    status.className = 'form-status visible sending';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (response) {
+        if (response.ok) {
+          status.textContent = t('contact.host_form_success');
+          status.className = 'form-status visible success';
+          form.reset();
+        } else {
+          status.textContent = t('contact.host_form_error');
+          status.className = 'form-status visible error';
+        }
+      })
+      .catch(function () {
+        status.textContent = t('contact.host_form_error');
+        status.className = 'form-status visible error';
+      });
+  });
 }
