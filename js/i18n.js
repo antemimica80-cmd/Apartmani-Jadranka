@@ -314,15 +314,16 @@
     'stan.cat.location.2': { hr: 'Mirno područje ispod glavne ceste', en: 'Peaceful area below the main road', de: 'Ruhige Lage unterhalb der Hauptstraße', pl: 'Spokojna okolica poniżej głównej drogi', cs: 'Klidná oblast pod hlavní silnicí' },
     'stan.cat.location.3': { hr: 'Zaseban ulaz', en: 'Private entrance', de: 'Separater Eingang', pl: 'Osobne wejście', cs: 'Samostatný vchod' },
 
-    'stan.cat.other': { hr: 'Ostalo', en: 'Other', de: 'Sonstiges', pl: 'Inne', cs: 'Ostatní' },
-    'stan.cat.other.1': { hr: 'Besplatan parking u sklopu objekta', en: 'Free parking on premises', de: 'Kostenloser Parkplatz auf dem Grundstück', pl: 'Bezpłatny parking na miejscu', cs: 'Bezplatné parkování v areálu' },
-    'stan.cat.other.2': { hr: 'Moguće ostaviti prtljagu', en: 'Luggage drop-off allowed', de: 'Gepäckaufbewahrung möglich', pl: 'Możliwość pozostawienia bagażu', cs: 'Možnost úschovy zavazadel' },
-    'stan.cat.other.3': { hr: 'Boravak 28+ dana moguć', en: 'Long-term stays allowed (28+ nights)', de: 'Langzeitaufenthalte möglich (28+ Nächte)', pl: 'Możliwy długi pobyt (28+ nocy)', cs: 'Umožněn dlouhodobý pobyt (28+ nocí)' },
-    'stan.cat.other.4': { hr: 'Osobni doček domaćice s predajom ključa', en: 'Personal welcome and key handover on arrival', de: 'Persönlicher Empfang mit Schlüsselübergabe', pl: 'Osobiste powitanie i przekazanie kluczy', cs: 'Osobní přivítání s předáním klíčů' },
+    'stan.cat.parking': { hr: 'Parking', en: 'Parking', de: 'Parkplatz', pl: 'Parking', cs: 'Parkování' },
+    'stan.cat.parking.1': { hr: 'Besplatan parking na posjedu', en: 'Free parking on premises', de: 'Kostenloser Parkplatz auf dem Grundstück', pl: 'Bezpłatny parking na miejscu', cs: 'Bezplatné parkování v areálu' },
+    'stan.cat.services': { hr: 'Usluge', en: 'Services', de: 'Services', pl: 'Usługi', cs: 'Služby' },
+    'stan.cat.services.1': { hr: 'Dopušteno ostavljanje prtljage', en: 'Luggage drop-off allowed', de: 'Gepäckaufbewahrung möglich', pl: 'Możliwość pozostawienia bagażu', cs: 'Možnost úschovy zavazadel' },
+    'stan.cat.services.2': { hr: 'Dopušten dugotrajni boravak (28+ noćenja)', en: 'Long-term stays allowed (28+ nights)', de: 'Langzeitaufenthalte möglich (28+ Nächte)', pl: 'Możliwy długi pobyt (28+ nocy)', cs: 'Umožněn dlouhodobý pobyt (28+ nocí)' },
+    'stan.cat.services.3': { hr: 'Osobni doček domaćice s predajom ključa', en: 'Personal welcome and key handover on arrival', de: 'Persönlicher Empfang mit Schlüsselübergabe', pl: 'Osobiste powitanie i przekazanie kluczy', cs: 'Osobní přivítání s předáním klíčů' },
     'stan.cat.houserules': { hr: 'Kućni red', en: 'House Rules', de: 'Hausordnung', pl: 'Zasady domowe', cs: 'Domácí řád' },
     'stan.cat.houserules.1': { hr: 'Zabranjeno pušenje', en: 'No smoking', de: 'Rauchen verboten', pl: 'Zakaz palenia', cs: 'Zákaz kouření' },
     'stan.cat.houserules.2': { hr: 'Ljubimci nisu dopušteni', en: 'No pets allowed', de: 'Haustiere nicht erlaubt', pl: 'Zwierzęta niedozwolone', cs: 'Domácí mazlíčci nejsou povoleni' },
-    'stan.cat.other.5': { hr: 'Osoblje dostupno 0-24', en: 'Staff available 24 hours', de: 'Personal 24 Stunden erreichbar', pl: 'Personel dostępny 24 godziny', cs: 'Personál k dispozici 24 hodin' },
+    'stan.cat.services.4': { hr: 'Osoblje dostupno 24 sata', en: 'Staff available 24 hours', de: 'Personal 24 Stunden erreichbar', pl: 'Personel dostępny 24 godziny', cs: 'Personál k dispozici 24 hodin' },
 
     // --- Stan: availability & pricing ---
     'calendar.avail.eyebrow': { hr: 'Rezervacija', en: 'Booking', de: 'Buchung', pl: 'Rezerwacja', cs: 'Rezervace' },
