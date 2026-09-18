@@ -12,7 +12,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apartmani Jadranka Mimice | Smještaj uz more — Omiška rivijera</title>
-  <meta name="description" content="Apartmani Jadranka u Mimicama na Omiškoj rivijeri — dva uređena apartmana uz more, idealno za obiteljski odmor. Provjerite dostupnost i rezervirajte direktno.">
+  <meta name="description" content="Apartmani Jadranka u Mimicama na Omiškoj rivijeri, Dalmacija — dva uređena apartmana uz more s pogledom na more, terasama i klima uređajem, samo nekoliko minuta hoda od plaže. Provjerite dostupnost i rezervirajte direktno.">
   <meta name="keywords" content="apartmani Mimice, smještaj Omiš, apartmani Omiška rivijera, apartman uz more Mimice, privatni smještaj Omiš">
   <meta property="og:title" content="Apartmani Jadranka Mimice — Omiška rivijera">
   <meta property="og:description" content="Dva uređena apartmana uz more u Mimicama, idealno za obiteljski odmor.">
@@ -27,6 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/mimice-hero.jpg?v=20260911" fetchpriority="high">
   <link rel="icon" href="images/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -60,7 +61,10 @@
     "amenityFeature": [
       { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Sea view", "value": true }
+      { "@type": "LocationFeatureSpecification", "name": "Sea view", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Mountain view", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Private entrance", "value": true }
     ]
   }
   </script>
@@ -69,7 +73,7 @@
 
   <header class="site-header">
     <nav class="nav">
-      <a href="index.html" class="nav-brand"><img src="images/nav-logo-icon.png" alt="Apartmani Jadranka logo" class="nav-logo-icon" width="62" height="28">Apartmani Jadranka</a>
+      <a href="index.html" class="nav-brand"><img src="images/nav-logo-icon.png" alt="Apartmani Jadranka logo" class="nav-logo-icon" width="62" height="28" loading="lazy">Apartmani Jadranka</a>
       <ul class="nav-links">
         <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
         <li><a href="pages/stan.html" data-i18n="nav.stan">Stan</a></li>
@@ -95,6 +99,8 @@
       <div class="nav-backdrop"></div>
     </nav>
   </header>
+
+  <main>
 
   <!-- ============ HERO ============ -->
   <section class="hero">
@@ -288,7 +294,7 @@
 
       <div class="contact-grid contact-grid-solo reveal">
         <div class="host-card">
-          <img class="host-avatar" src="images/host-jadranka.jpg" alt="Jadranka, domaćica Apartmana Jadranka u Mimicama" aria-hidden="true">
+          <img class="host-avatar" src="images/host-jadranka.jpg" alt="Jadranka, domaćica Apartmana Jadranka u Mimicama" loading="lazy">
           <h3 class="host-name" data-i18n="contact.host_name">Jadranka</h3>
           <p class="host-role" data-i18n="contact.host_role">Your Host</p>
           <p class="host-blurb" data-i18n="contact.host_blurb">We run Apartmani Jadranka as a family and are always happy to answer your questions about the apartments and your stay.</p>
@@ -331,6 +337,8 @@
     </div>
   </section>
 
+  </main>
+
   <footer class="site-footer">
     <div class="container">
       <p class="footer-brand">Apartmani Jadranka</p>
@@ -350,7 +358,7 @@
     </div>
   </footer>
 
-  <script src="js/i18n.js?v=20260935"></script>
+  <script src="js/i18n.js?v=20260936"></script>
   <script src="js/main.js?v=20260927"></script>
   <script src="js/gallery.js?v=20260911"></script>
   <script src="js/reviews.js?v=20260911"></script>
