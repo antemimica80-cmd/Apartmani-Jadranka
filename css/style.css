@@ -335,6 +335,7 @@ section {
   letter-spacing: 0.02em;
   color: var(--color-text);
   text-decoration: none;
+  text-transform: none;
   cursor: pointer;
   transition: background-color 0.15s ease;
 }
