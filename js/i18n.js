@@ -446,7 +446,12 @@
 
   function getLang() {
     var stored = localStorage.getItem(STORAGE_KEY);
-    return SUPPORTED_LANGS.indexOf(stored) !== -1 ? stored : 'hr';
+    if (SUPPORTED_LANGS.indexOf(stored) !== -1) return stored;
+    // No stored preference yet (first visit): default to the language this
+    // page was actually served in (e.g. /en/... pages declare lang="en"),
+    // not always Croatian, so a fresh visitor sees the language they landed on.
+    var pageLang = document.documentElement.getAttribute('lang');
+    return SUPPORTED_LANGS.indexOf(pageLang) !== -1 ? pageLang : 'hr';
   }
 
   function t(key, vars) {

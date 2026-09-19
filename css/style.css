@@ -322,7 +322,8 @@ section {
   display: block;
 }
 
-.lang-menu button {
+.lang-menu button,
+.lang-menu a {
   display: block;
   width: 100%;
   text-align: left;
@@ -333,15 +334,18 @@ section {
   font-size: 0.82rem;
   letter-spacing: 0.02em;
   color: var(--color-text);
+  text-decoration: none;
   cursor: pointer;
   transition: background-color 0.15s ease;
 }
 
-.lang-menu button:hover {
+.lang-menu button:hover,
+.lang-menu a:hover {
   background-color: var(--color-sea-mist);
 }
 
-.lang-menu button.active {
+.lang-menu button.active,
+.lang-menu a.active {
   color: var(--color-sea-deep);
   font-weight: 500;
 }

@@ -107,7 +107,11 @@
   }
 
   function loadAvailability() {
-    var path = '../data/availability-' + state.unit + '.json';
+    // Language subfolders (e.g. /en/pages/...) sit one directory level
+    // deeper than /pages/..., so the relative path to the shared data/
+    // folder at the site root needs one extra "../" there.
+    var dataPrefix = /\/en\/pages\//.test(location.pathname) ? '../../data/' : '../data/';
+    var path = dataPrefix + 'availability-' + state.unit + '.json';
     return fetch(path, { cache: 'no-store' })
       .then(function (res) {
         if (!res.ok) throw new Error(path + ' not found');
