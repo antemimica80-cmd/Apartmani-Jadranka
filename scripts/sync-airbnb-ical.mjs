@@ -64,32 +64,20 @@ async function main() {
   const text = await res.text();
   const lines = unfoldLines(text);
 
-  // Airbnb's exported iCal mixes two kinds of events: "Reserved" (an actual
-  // guest booking) and "Airbnb (Not available)" (dates the host's Airbnb
-  // calendar simply hasn't been opened for booking yet — Airbnb's own
-  // advance-booking-window setting, not a real block). This site takes
-  // direct bookings further out than that window, so only real reservations
-  // (or any other host-initiated block, e.g. a manual "Blocked" entry)
-  // should close dates here — Airbnb's own "not open yet" placeholder must
-  // not carry over.
-  const IGNORED_SUMMARIES = new Set(['Airbnb (Not available)']);
-
   const blocked = new Set();
   let inEvent = false;
   let dtstart = null;
   let dtend = null;
-  let summary = null;
 
   for (const line of lines) {
     if (line.startsWith('BEGIN:VEVENT')) {
       inEvent = true;
       dtstart = null;
       dtend = null;
-      summary = null;
       continue;
     }
     if (line.startsWith('END:VEVENT')) {
-      if (dtstart && dtend && !IGNORED_SUMMARIES.has(summary)) {
+      if (dtstart && dtend) {
         expandRange(dtstart, dtend).forEach((d) => blocked.add(d));
       }
       inEvent = false;
@@ -103,8 +91,6 @@ async function main() {
     } else if (line.startsWith('DTEND')) {
       const value = line.split(':')[1];
       if (value) dtend = parseDateValue(value.trim());
-    } else if (line.startsWith('SUMMARY')) {
-      summary = line.split(':').slice(1).join(':').trim();
     }
   }
 
