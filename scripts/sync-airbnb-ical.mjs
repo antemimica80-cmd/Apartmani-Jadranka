@@ -68,6 +68,7 @@ async function main() {
   let inEvent = false;
   let dtstart = null;
   let dtend = null;
+  let maxKnownDate = null;
 
   for (const line of lines) {
     if (line.startsWith('BEGIN:VEVENT')) {
@@ -79,6 +80,7 @@ async function main() {
     if (line.startsWith('END:VEVENT')) {
       if (dtstart && dtend) {
         expandRange(dtstart, dtend).forEach((d) => blocked.add(d));
+        if (!maxKnownDate || dtend > maxKnownDate) maxKnownDate = dtend;
       }
       inEvent = false;
       continue;
@@ -91,6 +93,26 @@ async function main() {
     } else if (line.startsWith('DTEND')) {
       const value = line.split(':')[1];
       if (value) dtend = parseDateValue(value.trim());
+    }
+  }
+
+  // Airbnb's iCal export only covers a limited window (roughly the next
+  // year) — it has no event at all for dates beyond that, which would
+  // otherwise default to "available" here. But those dates aren't actually
+  // open; Airbnb just hasn't released them for booking yet, and its own
+  // calendar shows them closed. So this site's calendar must match: treat
+  // everything past the feed's own known horizon as unavailable too,
+  // padded well beyond it so nothing outside our real data ever shows as
+  // falsely bookable. As the feed's rolling window advances on each daily
+  // sync, real events naturally replace this padding.
+  const HORIZON_PADDING_DAYS = 730;
+  if (maxKnownDate) {
+    const cursor = new Date(maxKnownDate);
+    const end = new Date(maxKnownDate);
+    end.setUTCDate(end.getUTCDate() + HORIZON_PADDING_DAYS);
+    while (cursor < end) {
+      blocked.add(toISODate(cursor));
+      cursor.setUTCDate(cursor.getUTCDate() + 1);
     }
   }
 
