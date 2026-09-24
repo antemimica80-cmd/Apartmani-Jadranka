@@ -68,17 +68,28 @@ async function main() {
   let inEvent = false;
   let dtstart = null;
   let dtend = null;
+  let summary = null;
+  const DEBUG = process.env.SYNC_DEBUG === '1';
+  const eventLog = [];
 
   for (const line of lines) {
     if (line.startsWith('BEGIN:VEVENT')) {
       inEvent = true;
       dtstart = null;
       dtend = null;
+      summary = null;
       continue;
     }
     if (line.startsWith('END:VEVENT')) {
       if (dtstart && dtend) {
         expandRange(dtstart, dtend).forEach((d) => blocked.add(d));
+      }
+      if (DEBUG) {
+        eventLog.push({
+          summary,
+          start: dtstart ? toISODate(dtstart) : null,
+          end: dtend ? toISODate(dtend) : null
+        });
       }
       inEvent = false;
       continue;
@@ -91,6 +102,21 @@ async function main() {
     } else if (line.startsWith('DTEND')) {
       const value = line.split(':')[1];
       if (value) dtend = parseDateValue(value.trim());
+    } else if (line.startsWith('SUMMARY')) {
+      summary = line.split(':').slice(1).join(':').trim();
+    }
+  }
+
+  if (DEBUG) {
+    console.log(`--- DEBUG: ${eventLog.length} VEVENT(s) found ---`);
+    const bySummary = {};
+    for (const ev of eventLog) {
+      bySummary[ev.summary] = (bySummary[ev.summary] || 0) + 1;
+    }
+    console.log('Event counts by SUMMARY:', JSON.stringify(bySummary, null, 2));
+    console.log('All events (summary, start, end):');
+    for (const ev of eventLog) {
+      console.log(`  ${ev.summary} | ${ev.start} -> ${ev.end}`);
     }
   }
 

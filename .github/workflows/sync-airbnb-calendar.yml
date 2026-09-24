@@ -44,6 +44,7 @@ jobs:
         env:
           AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_STAN }}
           OUTPUT_PATH: data/availability-stan.json
+          SYNC_DEBUG: '1'
         run: |
           if [ -z "$AIRBNB_ICAL_URL" ]; then
             echo "AIRBNB_ICAL_STAN secret is not set yet — skipping Stan sync."
@@ -55,6 +56,7 @@ jobs:
         env:
           AIRBNB_ICAL_URL: ${{ secrets.AIRBNB_ICAL_ISTOK }}
           OUTPUT_PATH: data/availability-istok.json
+          SYNC_DEBUG: '1'
         run: |
           if [ -z "$AIRBNB_ICAL_URL" ]; then
             echo "AIRBNB_ICAL_ISTOK secret is not set yet — skipping Istok sync."
