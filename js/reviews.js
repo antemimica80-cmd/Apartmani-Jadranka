@@ -41,9 +41,11 @@
     modal.innerHTML =
       '<div class="modal-dialog review-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="review-modal-author">' +
         '<button type="button" class="modal-close" aria-label="Close">&times;</button>' +
-        '<div class="review-stars" aria-hidden="true">★★★★★</div>' +
-        '<blockquote class="review-quote review-modal-quote"></blockquote>' +
-        '<p class="review-author"></p>' +
+        '<div class="modal-scroll">' +
+          '<div class="review-stars" aria-hidden="true">★★★★★</div>' +
+          '<blockquote class="review-quote review-modal-quote"></blockquote>' +
+          '<p class="review-author"></p>' +
+        '</div>' +
       '</div>';
     document.body.appendChild(modal);
     modalQuote = modal.querySelector('.review-modal-quote');
