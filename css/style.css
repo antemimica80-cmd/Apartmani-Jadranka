@@ -1730,7 +1730,15 @@ body.lightbox-locked {
   padding: 44px;
   max-width: 460px;
   width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
   box-shadow: var(--shadow-soft);
+}
+
+.modal-scroll {
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .modal-dialog h3 {
