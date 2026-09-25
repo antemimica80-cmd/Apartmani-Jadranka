@@ -1771,9 +1771,17 @@ body.lightbox-locked {
   color: var(--color-sea-deep);
 }
 
-html.modal-open,
-body.modal-open {
+html.modal-open {
   overflow: hidden;
+}
+
+body.modal-open {
+  position: fixed;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  /* top offset is set inline in JS to the negative of the scroll position
+     being locked in place — see js/reviews.js openModal()/closeModal(). */
 }
 
 /* ===========================================================
