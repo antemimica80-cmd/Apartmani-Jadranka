@@ -32,6 +32,7 @@
   var DRAG_THRESHOLD_PX = 5;
 
   var modal, modalQuote, modalAuthor;
+  var lockedScrollY = 0;
 
   function ensureModal() {
     if (modal) return;
@@ -63,6 +64,15 @@
     modalQuote.textContent = t(review.key + '.quote');
     modalAuthor.textContent = '— ' + review.name;
     modal.hidden = false;
+
+    // Plain `overflow: hidden` on body doesn't reliably block background
+    // scrolling on iOS Safari, and — worse — can interfere with touch
+    // scrolling *inside* the modal itself. Pinning the body in place with
+    // position: fixed (restoring the exact scroll offset on close) is the
+    // standard, iOS-safe way to lock background scroll without that side
+    // effect.
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.top = -lockedScrollY + 'px';
     document.body.classList.add('modal-open');
     document.documentElement.classList.add('modal-open');
   }
@@ -72,6 +82,8 @@
     modal.hidden = true;
     document.body.classList.remove('modal-open');
     document.documentElement.classList.remove('modal-open');
+    document.body.style.top = '';
+    window.scrollTo(0, lockedScrollY);
   }
 
   function buildCard(review, t) {
