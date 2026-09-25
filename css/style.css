@@ -1732,15 +1732,19 @@ body.lightbox-locked {
   width: 100%;
   max-height: 85vh;
   max-height: 85dvh;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
 }
 
+/* Scrolling is driven entirely by this element's own explicit max-height
+   (padding is 44px top + 44px bottom = 88px) rather than by flex-shrink —
+   a flex column + min-height:0 child was tried twice and didn't reliably
+   become touch-scrollable on real iOS Safari, so this avoids that
+   mechanism altogether in favor of a plain, universally-supported
+   max-height + overflow-y:auto block. */
 .modal-scroll {
-  flex: 1 1 auto;
-  min-height: 0;
+  max-height: calc(85vh - 88px);
+  max-height: calc(85dvh - 88px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
