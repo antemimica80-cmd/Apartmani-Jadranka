@@ -194,7 +194,18 @@
       btn.appendChild(numEl);
 
       var past = isPast(date);
-      var blocked = isBlocked(date);
+      var rawBlocked = isBlocked(date);
+
+      // A blocked day can still be picked as a check-out: the stay ends
+      // that morning, so another reservation starting the same day (a
+      // same-day turnover) doesn't actually conflict — mirrors how Airbnb's
+      // own calendar treats the checkout/next-checkin boundary. Only
+      // disallow it if a blocked night falls strictly between check-in and
+      // this date (i.e. the stay would have to pass through an occupied
+      // night to get here).
+      var selectingCheckout = !!state.checkin && !state.checkout && date > state.checkin;
+      var turnoverCheckout = selectingCheckout && rawBlocked && !hasBlockedInRange(state.checkin, date);
+      var blocked = rawBlocked && !turnoverCheckout;
 
       // Once a check-in is picked (and before a check-out is), grey out
       // dates that fall short of that check-in's minimum-stay requirement —
@@ -206,7 +217,7 @@
         belowMin = date < minCheckoutDate;
       }
 
-      if (!past && !blocked && !belowMin) {
+      if (!past && !blocked && !belowMin && !turnoverCheckout) {
         var priceEl = document.createElement('span');
         priceEl.className = 'day-price';
         priceEl.textContent = state.pricing.currency + priceForDate(date);
