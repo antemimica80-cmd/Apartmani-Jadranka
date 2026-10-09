@@ -33,7 +33,14 @@
         { key: 'winter', start: '11-01', end: '12-31', price: 50, minNights: 28 }
       ],
       defaultPrice: 50,
-      defaultMinNights: 28
+      defaultMinNights: 28,
+      // Temporary gap-fill exceptions: override the season's minNights for a
+      // specific checkin date range (end inclusive, ISO yyyy-mm-dd). Used to
+      // open up a short gap between bookings that the season rule alone
+      // would leave unbookable. Remove an entry once that gap is filled.
+      minNightsOverrides: [
+        { start: '2027-07-15', end: '2027-07-20', minNights: 5 }
+      ]
     },
     istok: {
       currency: '€',
@@ -49,7 +56,8 @@
         { key: 'winter', start: '11-01', end: '12-31', price: 50, minNights: 28 }
       ],
       defaultPrice: 50,
-      defaultMinNights: 28
+      defaultMinNights: 28,
+      minNightsOverrides: []
     }
   };
 
@@ -82,6 +90,12 @@
   }
 
   function minNightsForDate(date) {
+    var iso = toISO(date);
+    var overrides = state.pricing.minNightsOverrides || [];
+    for (var i = 0; i < overrides.length; i++) {
+      var o = overrides[i];
+      if (iso >= o.start && iso <= o.end) return o.minNights;
+    }
     var s = seasonForDate(date);
     return s ? s.minNights : state.pricing.defaultMinNights;
   }
