@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <!-- Guest guide: reached by QR code / link sent to guests. Not linked in the
+       nav and not in sitemap.xml, and kept out of search results on purpose. -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Vodič za goste | Apartmani Jadranka Mimice</title>
+  <meta name="theme-color" content="#1b4b6b">
+  <link rel="icon" href="https://mimice.hr/images/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="https://mimice.hr/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sea-deep: #1b4b6b; --sea: #4a90a4; --mist: #eef3f4; --stone: #f7f5f0;
+      --sand: #ede6d6; --sand-dark: #ddd2b8; --white: #fff; --text: #2a2a28; --text-light: #6b6558;
+      --display: 'Cormorant Garamond', Georgia, serif;
+      --body: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    body { font-family: var(--body); font-weight: 300; color: var(--text); background: var(--stone); line-height: 1.6; font-size: 17px; -webkit-font-smoothing: antialiased; }
+    a { color: var(--sea-deep); }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+
+    /* Top bar */
+    .topbar { position: sticky; top: 0; z-index: 10; background: rgba(247,245,240,.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--sand); }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .brand { white-space: nowrap; font-family: var(--display); font-size: 1.15rem; font-weight: 600; color: var(--sea-deep); text-decoration: none; }
+    .langs { display: flex; gap: 2px; }
+    .langs button { font: 500 .75rem var(--body); letter-spacing: .05em; border: 0; background: none; color: var(--text-light); padding: 6px 7px; border-radius: 4px; cursor: pointer; }
+    .langs button.active { background: var(--sea-deep); color: var(--white); }
+
+    /* Hero */
+    .hero { background: linear-gradient(rgba(27,75,107,.55), rgba(27,75,107,.75)), url('https://mimice.hr/images/mimice-hero.jpg') center/cover; color: var(--white); padding: 48px 0 40px; text-align: center; }
+    .hero img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,.85); margin-bottom: 14px; }
+    .eyebrow { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; opacity: .9; }
+    .hero h1 { font-family: var(--display); font-weight: 500; font-size: 2.4rem; line-height: 1.15; margin: 6px 0 12px; }
+    .hero p { max-width: 460px; margin: 0 auto; opacity: .95; }
+    .quick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 26px; }
+    .quick a { display: block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.4); color: var(--white); text-decoration: none; padding: 12px 4px; border-radius: 8px; font-weight: 400; font-size: .9rem; }
+    .quick a span { display: block; font-size: 1.3rem; margin-bottom: 2px; }
+
+    /* Section chips */
+    .chips { display: flex; gap: 8px; overflow-x: auto; padding: 14px 20px; max-width: 640px; margin: 0 auto; scrollbar-width: none; }
+    .chips::-webkit-scrollbar { display: none; }
+    .chips a { flex: none; text-decoration: none; font-size: .85rem; padding: 6px 14px; border-radius: 20px; background: var(--white); border: 1px solid var(--sand-dark); color: var(--sea-deep); }
+
+    /* Sections */
+    section { padding: 26px 0 8px; }
+    h2 { font-family: var(--display); font-weight: 600; font-size: 1.75rem; color: var(--sea-deep); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    h2 .ic { font-size: 1.3rem; }
+    .card { background: var(--white); border-radius: 10px; padding: 18px; margin-bottom: 12px; box-shadow: 0 6px 20px rgba(27,75,107,.07); }
+    .card h3 { font-weight: 500; font-size: 1.02rem; margin-bottom: 4px; color: var(--text); }
+    .card p + p { margin-top: 8px; }
+    .muted { color: var(--text-light); font-size: .93rem; }
+    .tip { background: var(--mist); border-left: 3px solid var(--sea); }
+    .btn { display: inline-block; margin-top: 10px; background: var(--sea-deep); color: var(--white); text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 400; font-size: .92rem; border: 0; cursor: pointer; font-family: var(--body); }
+    .btn.light { background: var(--mist); color: var(--sea-deep); }
+    .link { font-weight: 400; text-decoration: none; border-bottom: 1px solid var(--sea); }
+
+    /* Wi-Fi */
+    .wifi-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid var(--sand); }
+    .wifi-row:first-of-type { border-top: 0; }
+    .wifi-row code { font-family: ui-monospace, Menlo, monospace; font-size: 1rem; background: var(--stone); padding: 3px 8px; border-radius: 4px; word-break: break-all; }
+    .copy { flex: none; margin: 0; padding: 7px 12px; font-size: .8rem; }
+
+    /* Emergency list */
+    .sos { list-style: none; }
+    .sos li { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-top: 1px solid var(--sand); }
+    .sos li:first-child { border-top: 0; }
+    .sos a { font-weight: 500; font-size: 1.1rem; text-decoration: none; }
+
+    .back { background: var(--sea-deep); color: var(--white); text-align: center; padding: 30px 22px; border-radius: 12px; margin: 18px 0 8px; }
+    .back h2 { color: var(--white); justify-content: center; }
+    .back .btn { background: var(--white); color: var(--sea-deep); }
+    footer { text-align: center; padding: 26px 20px 40px; font-size: .82rem; color: var(--text-light); }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="https://mimice.hr/">Apartmani Jadranka</a>
+      <div class="langs" role="group" aria-label="Language">
+        <button data-lang="hr">HR</button><button data-lang="en">EN</button><button data-lang="de">DE</button><button data-lang="pl">PL</button><button data-lang="cs">CS</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <img src="https://mimice.hr/images/host-jadranka.jpg" alt="Jadranka">
+      <div class="eyebrow" data-t="eyebrow"></div>
+      <h1 data-t="welcome_h"></h1>
+      <p data-t="welcome_p"></p>
+      <div class="quick">
+        <a href="https://wa.me/385959037604" target="_blank" rel="noopener"><span>💬</span>WhatsApp</a>
+        <a href="tel:+385959037604"><span>📞</span><b data-t="btn_call" style="font-weight:400"></b></a>
+        <a href="https://maps.google.com/?q=Prilaz+Moru+6,+21318+Mimice,+Croatia" target="_blank" rel="noopener"><span>📍</span><b data-t="btn_map" style="font-weight:400"></b></a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="chips" aria-label="Sections">
+    <a href="#dolazak" data-t="nav_arrival"></a>
+    <a href="#wifi">Wi-Fi</a>
+    <a href="#apartman" data-t="nav_apt"></a>
+    <a href="#plaze" data-t="nav_beach"></a>
+    <a href="#hrana" data-t="nav_food"></a>
+    <a href="#izleti" data-t="nav_trips"></a>
+    <a href="#hitno" data-t="nav_sos"></a>
+    <a href="#odlazak" data-t="nav_leave"></a>
+  </nav>
+
+  <main class="wrap">
+
+    <section id="dolazak">
+      <h2><span class="ic">🔑</span><span data-t="arrival_h"></span></h2>
+      <div class="card">
+        <h3 data-t="addr_label"></h3>
+        <p>Prilaz Moru 6, 21318 Mimice</p>
+        <a class="btn" href="https://maps.google.com/?q=Prilaz+Moru+6,+21318+Mimice,+Croatia" target="_blank" rel="noopener" data-t="btn_nav"></a>
+      </div>
+      <div class="card">
+        <h3 data-t="checkin_h"></h3>
+        <p data-t="checkin_p"></p>
+      </div>
+      <div class="card">
+        <h3 data-t="parking_h"></h3>
+        <p data-t="parking_p"></p>
+      </div>
+      <div class="card">
+        <h3 data-t="route_h"></h3>
+        <p data-t="route_p"></p>
+      </div>
+      <div class="card tip"><p data-t="floor_p"></p></div>
+    </section>
+
+    <section id="wifi">
+      <h2><span class="ic">📶</span>Wi-Fi</h2>
+      <div id="wifi-cards"></div>
+    </section>
+
+    <section id="apartman">
+      <h2><span class="ic">🏠</span><span data-t="apt_h"></span></h2>
+      <div class="card"><h3 data-t="ac_h"></h3><p data-t="ac_p"></p></div>
+      <div class="card"><h3 data-t="wind_h"></h3><p data-t="wind_p"></p></div>
+      <div class="card"><h3 data-t="trash_h"></h3><p data-t="trash_p"></p></div>
+      <div class="card"><h3 data-t="quiet_h"></h3><p data-t="quiet_p"></p></div>
+    </section>
+
+    <section id="plaze">
+      <h2><span class="ic">🏖️</span><span data-t="beach_h"></span></h2>
+      <div class="card"><h3>Kutleša</h3><p data-t="kutlesa_p"></p></div>
+      <div class="card"><h3>Juto</h3><p data-t="juto_p"></p></div>
+      <div class="card tip"><p data-t="beach_tip"></p></div>
+    </section>
+
+    <section id="hrana">
+      <h2><span class="ic">🍽️</span><span data-t="food_h"></span></h2>
+      <div class="card"><h3 data-t="shop_h"></h3><p data-t="shop_p"></p></div>
+      <div class="card"><h3 data-t="harbour_h"></h3><p data-t="harbour_p"></p></div>
+      <div class="card"><h3>Konoba Tadići</h3><p data-t="tadici_p"></p></div>
+      <div class="card"><h3>Omiš</h3><p data-t="omis_shop_p"></p></div>
+    </section>
+
+    <section id="izleti">
+      <h2><span class="ic">⛵</span><span data-t="trips_h"></span></h2>
+      <div class="card">
+        <h3 data-t="jelen_h"></h3>
+        <p data-t="jelen_p"></p>
+        <a class="btn light" href="https://jelenmimice.com/" target="_blank" rel="noopener" data-t="jelen_btn"></a>
+      </div>
+      <div class="card"><h3 data-t="omis_h"></h3><p data-t="omis_p"></p></div>
+      <div class="card"><h3 data-t="cetina_h"></h3><p data-t="cetina_p"></p></div>
+      <div class="card"><h3>Split · 36 km</h3><p data-t="split_p"></p></div>
+      <div class="card"><h3>Makarska · 22 km</h3><p data-t="makarska_p"></p></div>
+    </section>
+
+    <section id="hitno">
+      <h2><span class="ic">🆘</span><span data-t="sos_h"></span></h2>
+      <div class="card">
+        <ul class="sos">
+          <li><span data-t="sos_112"></span><a href="tel:112">112</a></li>
+          <li><span data-t="sos_194"></span><a href="tel:194">194</a></li>
+          <li><span data-t="sos_192"></span><a href="tel:192">192</a></li>
+          <li><span data-t="sos_193"></span><a href="tel:193">193</a></li>
+          <li><span data-t="sos_195"></span><a href="tel:195">195</a></li>
+          <li><span data-t="sos_host"></span><a href="tel:+385959037604">+385 95 903 7604</a></li>
+        </ul>
+      </div>
+      <div class="card tip"><p data-t="sos_doctor"></p></div>
+    </section>
+
+    <section id="odlazak">
+      <h2><span class="ic">👋</span><span data-t="leave_h"></span></h2>
+      <div class="card"><h3 data-t="checkout_h"></h3><p data-t="checkout_p"></p></div>
+      <div class="card"><h3 data-t="keys_h"></h3><p data-t="keys_p"></p></div>
+      <div class="card"><h3 data-t="review_h"></h3><p data-t="review_p"></p></div>
+
+      <div class="back">
+        <h2 data-t="back_h"></h2>
+        <p data-t="back_p"></p>
+        <a class="btn" href="https://mimice.hr/#contact" data-t="back_btn"></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Apartmani Jadranka · Prilaz Moru 6, 21318 Mimice<br>
+    <a href="https://mimice.hr/">mimice.hr</a>
+  </footer>
+
+  <script>
+  // ====================================================================
+  //  PODACI KOJE UPISUJE DOMAĆIN — wifi po apartmanu.
+  //  Ako je polje prazno, vodič gostu napiše da pita Jadranku.
+  // ====================================================================
+  var WIFI = {
+    stan:  { ssid: '', pass: '' },   // apartman s terasom (jugozapad)
+    istok: { ssid: '', pass: '' }    // apartman s balkonom (jugoistok)
+  };
+
+  // Text in 5 languages: [hr, en, de, pl, cs]
+  var T = {
+    eyebrow: ['Vodič za goste', 'Guest guide', 'Gästeinfo', 'Przewodnik dla gości', 'Průvodce pro hosty'],
+    welcome_h: ['Dobrodošli u Mimice!', 'Welcome to Mimice!', 'Willkommen in Mimice!', 'Witamy w Mimicach!', 'Vítejte v Mimicích!'],
+    welcome_p: [
+      'Drago nam je što ste naši gosti. Ovdje je sve što vam treba za boravak, od wifija do najljepših plaža. Ako nešto ne piše, slobodno nam se javite.',
+      'We are so glad to have you. Everything you need for your stay is here, from the Wi-Fi to the best beaches. If something is missing, just message us.',
+      'Schön, dass Sie da sind! Hier finden Sie alles für Ihren Aufenthalt, vom WLAN bis zu den schönsten Stränden. Fehlt etwas, schreiben Sie uns einfach.',
+      'Cieszymy się, że jesteście naszymi gośćmi. Tu znajdziecie wszystko, czego potrzeba na pobyt, od Wi-Fi po najpiękniejsze plaże. Jeśli czegoś brakuje, po prostu napiszcie.',
+      'Jsme rádi, že jste u nás. Najdete tu vše, co pro pobyt potřebujete, od Wi-Fi po nejkrásnější pláže. Pokud něco chybí, napište nám.'],
+    btn_call: ['Nazovi', 'Call', 'Anrufen', 'Zadzwoń', 'Zavolat'],
+    btn_map: ['Karta', 'Map', 'Karte', 'Mapa', 'Mapa'],
+    nav_arrival: ['Dolazak', 'Arrival', 'Anreise', 'Przyjazd', 'Příjezd'],
+    nav_apt: ['Apartman', 'Apartment', 'Apartment', 'Apartament', 'Apartmán'],
+    nav_beach: ['Plaže', 'Beaches', 'Strände', 'Plaże', 'Pláže'],
+    nav_food: ['Hrana', 'Food', 'Essen', 'Jedzenie', 'Jídlo'],
+    nav_trips: ['Izleti', 'Trips', 'Ausflüge', 'Wycieczki', 'Výlety'],
+    nav_sos: ['Hitno', 'Emergency', 'Notfall', 'Pomoc', 'Nouze'],
+    nav_leave: ['Odlazak', 'Departure', 'Abreise', 'Wyjazd', 'Odjezd'],
+
+    arrival_h: ['Dolazak', 'Arrival', 'Anreise', 'Przyjazd', 'Příjezd'],
+    addr_label: ['Adresa', 'Address', 'Adresse', 'Adres', 'Adresa'],
+    btn_nav: ['Otvori navigaciju', 'Open navigation', 'Navigation starten', 'Otwórz nawigację', 'Spustit navigaci'],
+    checkin_h: ['Prijava od 15:00', 'Check-in from 15:00', 'Check-in ab 15:00 Uhr', 'Zameldowanie od 15:00', 'Check-in od 15:00'],
+    checkin_p: [
+      'Javite nam WhatsAppom otprilike kada stižete. Jadranka će vas dočekati i predati vam ključeve.',
+      'Send us a WhatsApp message with your approximate arrival time. Jadranka will meet you and hand over the keys.',
+      'Schreiben Sie uns per WhatsApp ungefähr, wann Sie ankommen. Jadranka empfängt Sie und übergibt die Schlüssel.',
+      'Dajcie nam znać przez WhatsApp, o której mniej więcej przyjedziecie. Jadranka was przywita i przekaże klucze.',
+      'Napište nám přes WhatsApp, kdy přibližně dorazíte. Jadranka vás přivítá a předá vám klíče.'],
+    parking_h: ['Parking', 'Parking', 'Parken', 'Parking', 'Parkování'],
+    parking_p: [
+      'Parking je za goste besplatan. Jadranka će vam pri dolasku pokazati gdje možete parkirati.',
+      'Parking is free for guests. Jadranka will show you where to park when you arrive.',
+      'Parken ist für Gäste kostenlos. Jadranka zeigt Ihnen bei der Ankunft, wo Sie parken können.',
+      'Parking jest dla gości bezpłatny. Jadranka pokaże wam po przyjeździe, gdzie zaparkować.',
+      'Parkování je pro hosty zdarma. Jadranka vám při příjezdu ukáže, kde zaparkovat.'],
+    route_h: ['Kako doći', 'How to get here', 'Anfahrt', 'Jak dojechać', 'Jak se k nám dostat'],
+    route_p: [
+      'Iz Splita vozite Jadranskom magistralom (D8) prema Omišu. Mimice su 12 km iza Omiša, u smjeru Makarske. Od zračne luke Split ima oko 55 km.',
+      'From Split, follow the coastal road (D8) towards Omiš. Mimice is 12 km past Omiš, towards Makarska. Split Airport is about 55 km away.',
+      'Von Split fahren Sie die Küstenstraße (D8) Richtung Omiš. Mimice liegt 12 km hinter Omiš, Richtung Makarska. Bis zum Flughafen Split sind es etwa 55 km.',
+      'Ze Splitu jedźcie drogą nadmorską (D8) w kierunku Omiša. Mimice leżą 12 km za Omišem, w stronę Makarskiej. Do lotniska w Splicie jest około 55 km.',
+      'Ze Splitu jeďte po pobřežní silnici (D8) směrem na Omiš. Mimice jsou 12 km za Omišem, směrem na Makarskou. Letiště Split je vzdálené asi 55 km.'],
+    floor_p: [
+      'Dobro je znati: oba apartmana su na drugom katu, a Mimice su na brdu, pa je put od plaže prema kući uzbrdo.',
+      'Good to know: both apartments are on the second floor, and Mimice sits on a hillside, so the walk back from the beach is uphill.',
+      'Gut zu wissen: Beide Apartments liegen im zweiten Stock, und Mimice liegt am Hang. Der Rückweg vom Strand geht also bergauf.',
+      'Warto wiedzieć: oba apartamenty są na drugim piętrze, a Mimice leżą na zboczu, więc droga z plaży prowadzi pod górę.',
+      'Dobré vědět: oba apartmány jsou ve druhém patře a Mimice leží na svahu, takže cesta z pláže vede do kopce.'],
+
+    wifi_apt_stan: ['Apartman s terasom (jugozapad)', 'Terrace apartment (south-west)', 'Apartment mit Terrasse (Südwest)', 'Apartament z tarasem (południowy zachód)', 'Apartmán s terasou (jihozápad)'],
+    wifi_apt_istok: ['Apartman s balkonom (jugoistok)', 'Balcony apartment (south-east)', 'Apartment mit Balkon (Südost)', 'Apartament z balkonem (południowy wschód)', 'Apartmán s balkonem (jihovýchod)'],
+    wifi_net: ['Mreža', 'Network', 'Netzwerk', 'Sieć', 'Síť'],
+    wifi_pass: ['Lozinka', 'Password', 'Passwort', 'Hasło', 'Heslo'],
+    wifi_copy: ['Kopiraj', 'Copy', 'Kopieren', 'Kopiuj', 'Kopírovat'],
+    wifi_copied: ['Kopirano ✓', 'Copied ✓', 'Kopiert ✓', 'Skopiowano ✓', 'Zkopírováno ✓'],
+    wifi_missing: [
+      'Podatke za wifi naći ćete u apartmanu, ili pitajte Jadranku.',
+      'You will find the Wi-Fi details in the apartment, or just ask Jadranka.',
+      'Die WLAN-Daten finden Sie im Apartment, oder fragen Sie einfach Jadranka.',
+      'Dane do Wi-Fi znajdziecie w apartamencie albo zapytajcie Jadrankę.',
+      'Údaje k Wi-Fi najdete v apartmánu, nebo se zeptejte Jadranky.'],
+
+    apt_h: ['U apartmanu', 'In the apartment', 'Im Apartment', 'W apartamencie', 'V apartmánu'],
+    ac_h: ['Klima uređaj', 'Air conditioning', 'Klimaanlage', 'Klimatyzacja', 'Klimatizace'],
+    ac_p: [
+      'Dok klima radi, zatvorite prozore i vrata. Kad izlazite iz apartmana, molimo ugasite je.',
+      'Please keep windows and doors closed while the AC is on, and switch it off when you go out.',
+      'Bitte halten Sie Fenster und Türen geschlossen, solange die Klimaanlage läuft, und schalten Sie sie aus, wenn Sie das Apartment verlassen.',
+      'Gdy klimatyzacja działa, prosimy o zamknięcie okien i drzwi, a przy wychodzeniu o jej wyłączenie.',
+      'Když běží klimatizace, mějte prosím zavřená okna i dveře a při odchodu ji vypněte.'],
+    wind_h: ['Vjetar', 'Wind', 'Wind', 'Wiatr', 'Vítr'],
+    wind_p: [
+      'Bura i jugo znaju iznenada zapuhati. Kad izlazite, zatvorite prozore i spremite ručnike i lagane stvari s terase ili balkona.',
+      'The bura and jugo winds can pick up suddenly. When you go out, close the windows and bring towels and light items in from the terrace or balcony.',
+      'Bora und Jugo können plötzlich aufkommen. Schließen Sie beim Weggehen die Fenster und holen Sie Handtücher und leichte Dinge von Terrasse oder Balkon herein.',
+      'Wiatry bora i jugo potrafią nagle się zerwać. Wychodząc, zamknijcie okna i zabierzcie ręczniki oraz lekkie rzeczy z tarasu lub balkonu.',
+      'Vítr bura a jugo umí nečekaně zesílit. Při odchodu zavřete okna a ukliďte ručníky a lehké věci z terasy nebo balkonu.'],
+    trash_h: ['Smeće', 'Rubbish', 'Müll', 'Śmieci', 'Odpadky'],
+    trash_p: [
+      'Jadranka će vam pri dolasku pokazati gdje su kontejneri za smeće.',
+      'Jadranka will show you where the bins are when you arrive.',
+      'Jadranka zeigt Ihnen bei der Ankunft, wo die Mülltonnen stehen.',
+      'Jadranka pokaże wam po przyjeździe, gdzie są kontenery na śmieci.',
+      'Jadranka vám při příjezdu ukáže, kde jsou popelnice.'],
+    quiet_h: ['Susjedi', 'Neighbours', 'Nachbarn', 'Sąsiedzi', 'Sousedé'],
+    quiet_p: [
+      'U kući žive i drugi ljudi, pa vas molimo da poštujete njihov mir, posebno kasno navečer.',
+      'Other people live in the house too, so please respect their peace, especially late in the evening.',
+      'Im Haus wohnen auch andere Menschen. Bitte nehmen Sie Rücksicht, besonders spät am Abend.',
+      'W domu mieszkają też inne osoby, dlatego prosimy o ciszę, zwłaszcza późnym wieczorem.',
+      'V domě bydlí i další lidé, proto prosíme o klid, zvlášť pozdě večer.'],
+
+    beach_h: ['Plaže', 'Beaches', 'Strände', 'Plaże', 'Pláže'],
+    kutlesa_p: [
+      'Šljunčana plaža s kristalno čistim morem, nekoliko minuta hoda od kuće. Naši gosti je posebno preporučuju za obitelji s malom djecom.',
+      'A pebble beach with crystal-clear water, a few minutes on foot from the house. Our guests especially recommend it for families with young children.',
+      'Ein Kiesstrand mit kristallklarem Wasser, wenige Gehminuten vom Haus. Unsere Gäste empfehlen ihn besonders Familien mit kleinen Kindern.',
+      'Kamienista plaża z krystalicznie czystą wodą, kilka minut pieszo od domu. Nasi goście szczególnie polecają ją rodzinom z małymi dziećmi.',
+      'Oblázková pláž s křišťálově čistou vodou, pár minut chůze od domu. Naši hosté ji doporučují hlavně rodinám s malými dětmi.'],
+    juto_p: [
+      'Druga šljunčana plaža uz samo selo, također na par minuta hoda.',
+      'The second pebble beach right by the village, also just a few minutes on foot.',
+      'Der zweite Kiesstrand direkt am Dorf, ebenfalls nur wenige Gehminuten entfernt.',
+      'Druga kamienista plaża tuż przy wiosce, również kilka minut pieszo.',
+      'Druhá oblázková pláž přímo u vesnice, také jen pár minut chůze.'],
+    beach_tip: [
+      'Savjet: ponesite cipele za vodu i bocu vode, jer je put natrag uzbrdo.',
+      'Tip: bring water shoes and a bottle of water, as the walk back is uphill.',
+      'Tipp: Nehmen Sie Badeschuhe und eine Flasche Wasser mit, denn der Rückweg geht bergauf.',
+      'Wskazówka: weźcie buty do wody i butelkę wody, bo droga powrotna prowadzi pod górę.',
+      'Tip: vezměte si boty do vody a láhev vody, cesta zpět vede do kopce.'],
+
+    food_h: ['Hrana i kupovina', 'Food & shopping', 'Essen & Einkaufen', 'Jedzenie i zakupy', 'Jídlo a nákupy'],
+    shop_h: ['Trgovina', 'Grocery shop', 'Lebensmittelladen', 'Sklep spożywczy', 'Obchod s potravinami'],
+    shop_p: [
+      'Dobro opskrbljena trgovina je nekoliko stotina metara od kuće.',
+      'A well-stocked grocery shop is just a few hundred metres from the house.',
+      'Ein gut sortierter Laden ist nur wenige hundert Meter vom Haus entfernt.',
+      'Dobrze zaopatrzony sklep jest kilkaset metrów od domu.',
+      'Dobře zásobený obchod je jen pár set metrů od domu.'],
+    harbour_h: ['Restorani u luci', 'Restaurants by the harbour', 'Restaurants am Hafen', 'Restauracje przy przystani', 'Restaurace u přístavu'],
+    harbour_p: [
+      'U maloj luci, na pješačkoj udaljenosti, nalazi se nekoliko restorana.',
+      'There are a few restaurants at the little harbour, within walking distance.',
+      'Am kleinen Hafen, zu Fuß erreichbar, gibt es einige Restaurants.',
+      'Przy małej przystani, w odległości spaceru, jest kilka restauracji.',
+      'U malého přístavu, v docházkové vzdálenosti, je několik restaurací.'],
+    tadici_p: [
+      'Konoba u brdima iznad obale, oko 20 minuta autom. Dođite na zalazak sunca, pogled je nezaboravan.',
+      'A tavern in the hills above the coast, about 20 minutes by car. Go for the sunset, the view is unforgettable.',
+      'Eine Konoba in den Hügeln über der Küste, etwa 20 Minuten mit dem Auto. Kommen Sie zum Sonnenuntergang, der Blick ist unvergesslich.',
+      'Tawerna na wzgórzach nad wybrzeżem, około 20 minut samochodem. Przyjedźcie na zachód słońca, widok jest niezapomniany.',
+      'Taverna v kopcích nad pobřežím, asi 20 minut autem. Přijeďte na západ slunce, výhled je nezapomenutelný.'],
+    omis_shop_p: [
+      'Omiš (12 km) ima veće trgovine, ljekarne, bankomate i stari grad pun konoba.',
+      'Omiš (12 km) has bigger supermarkets, pharmacies, ATMs and an old town full of taverns.',
+      'In Omiš (12 km) gibt es größere Supermärkte, Apotheken, Geldautomaten und eine Altstadt voller Konobas.',
+      'W Omišu (12 km) są większe supermarkety, apteki, bankomaty i stare miasto pełne tawern.',
+      'V Omiši (12 km) jsou větší supermarkety, lékárny, bankomaty a staré město plné taveren.'],
+
+    trips_h: ['Izleti', 'Day trips', 'Ausflüge', 'Wycieczki', 'Výlety'],
+    jelen_h: ['Jelen: izlet brodom i fish piknik', 'Jelen: boat trip & fish picnic', 'Jelen: Bootsausflug & Fischpicknick', 'Jelen: rejs łodzią i rybny piknik', 'Jelen: výlet lodí a rybí piknik'],
+    jelen_p: [
+      'Poludnevni izlet morem s tradicionalnim dalmatinskim ručkom od ribe. Polazi izravno iz Mimica.',
+      'A half-day trip on the sea with a traditional Dalmatian fish lunch, departing right from Mimice.',
+      'Ein Halbtagesausflug auf dem Meer mit traditionellem dalmatinischem Fischessen, Abfahrt direkt in Mimice.',
+      'Półdniowy rejs z tradycyjnym dalmatyńskim obiadem z ryb, z wypłynięciem prosto z Mimic.',
+      'Půldenní výlet po moři s tradičním dalmatským rybím obědem, odjezd přímo z Mimic.'],
+    jelen_btn: ['Pogledaj izlete', 'See their tours', 'Touren ansehen', 'Zobacz rejsy', 'Zobrazit výlety'],
+    omis_h: ['Omiš i tvrđava Fortica', 'Omiš & Fortica fortress', 'Omiš & Festung Fortica', 'Omiš i twierdza Fortica', 'Omiš a pevnost Fortica'],
+    omis_p: [
+      'Stari grad na ušću Cetine i tvrđava Fortica (Starigrad) s pogledom na cijelu rivijeru. Za uspon ponesite vodu i dobre tenisice, a krenite rano ili predvečer.',
+      'An old town at the mouth of the Cetina river and the Fortica (Starigrad) fortress with a view over the whole riviera. For the climb, bring water and good shoes, and go early or late in the day.',
+      'Altstadt an der Mündung der Cetina und die Festung Fortica (Starigrad) mit Blick über die ganze Riviera. Für den Aufstieg Wasser und gute Schuhe mitnehmen und früh oder am späten Nachmittag gehen.',
+      'Stare miasto u ujścia Cetiny i twierdza Fortica (Starigrad) z widokiem na całą riwierę. Na wejście weźcie wodę i dobre buty, najlepiej rano lub pod wieczór.',
+      'Staré město u ústí řeky Cetiny a pevnost Fortica (Starigrad) s výhledem na celou riviéru. Na výstup si vezměte vodu a dobré boty a vyrazte brzy ráno nebo k večeru.'],
+    cetina_h: ['Kanjon Cetine', 'Cetina canyon', 'Cetina-Schlucht', 'Kanion Cetiny', 'Kaňon Cetiny'],
+    cetina_p: [
+      'Rafting, kanu i zipline iznad kanjona. Agencije su u Omišu, a ljeti je najbolje rezervirati dan ranije.',
+      'Rafting, canoeing and ziplining over the canyon. The agencies are in Omiš; in summer, book a day ahead.',
+      'Rafting, Kanu und Zipline über der Schlucht. Die Anbieter sitzen in Omiš; im Sommer am besten einen Tag vorher buchen.',
+      'Rafting, kajaki i zipline nad kanionem. Agencje są w Omišu, latem najlepiej rezerwować dzień wcześniej.',
+      'Rafting, kanoe a zipline nad kaňonem. Agentury jsou v Omiši, v létě je nejlepší rezervovat den předem.'],
+    split_p: [
+      'Dioklecijanova palača i Riva. Ljeti krenite rano zbog gužve na cesti i parkiralištima.',
+      "Diocletian's Palace and the Riva promenade. In summer, leave early to beat the traffic and parking crowds.",
+      'Diokletianpalast und die Riva. Im Sommer früh losfahren, wegen Verkehr und voller Parkplätze.',
+      'Pałac Dioklecjana i promenada Riva. Latem wyjedźcie wcześnie, bo na drogach i parkingach są tłumy.',
+      'Diokleciánův palác a promenáda Riva. V létě vyrazte brzy kvůli dopravě a plným parkovištím.'],
+    makarska_p: [
+      'Šetnica uz more i planina Biokovo sa Skywalkom, staklenom platformom iznad litice.',
+      'A seaside promenade and Biokovo mountain with its Skywalk, a glass platform over the cliff.',
+      'Uferpromenade und das Biokovo-Gebirge mit dem Skywalk, einer Glasplattform über der Felswand.',
+      'Nadmorska promenada i góra Biokovo ze Skywalkiem, szklaną platformą nad urwiskiem.',
+      'Přímořská promenáda a pohoří Biokovo se Skywalkem, skleněnou plošinou nad útesem.'],
+
+    sos_h: ['Hitni brojevi', 'Emergency numbers', 'Notrufnummern', 'Numery alarmowe', 'Tísňová čísla'],
+    sos_112: ['Hitne službe (EU)', 'Emergency (EU)', 'Notruf (EU)', 'Numer alarmowy (UE)', 'Tísňová linka (EU)'],
+    sos_194: ['Hitna pomoć', 'Ambulance', 'Rettungsdienst', 'Pogotowie', 'Záchranná služba'],
+    sos_192: ['Policija', 'Police', 'Polizei', 'Policja', 'Policie'],
+    sos_193: ['Vatrogasci', 'Fire brigade', 'Feuerwehr', 'Straż pożarna', 'Hasiči'],
+    sos_195: ['Spašavanje na moru', 'Sea rescue', 'Seenotrettung', 'Ratownictwo morskie', 'Záchrana na moři'],
+    sos_host: ['Domaćini', 'Your hosts', 'Gastgeber', 'Gospodarze', 'Hostitelé'],
+    sos_doctor: [
+      'Najbliži dom zdravlja i ljekarne su u Omišu (12 km). Ako vam zatreba liječnik, javite nam se i pomoći ćemo.',
+      'The nearest health centre and pharmacies are in Omiš (12 km). If you need a doctor, call us and we will help.',
+      'Das nächste Gesundheitszentrum und Apotheken gibt es in Omiš (12 km). Wenn Sie einen Arzt brauchen, rufen Sie uns an, wir helfen gern.',
+      'Najbliższa przychodnia i apteki są w Omišu (12 km). Jeśli potrzebujecie lekarza, zadzwońcie do nas, pomożemy.',
+      'Nejbližší zdravotní středisko a lékárny jsou v Omiši (12 km). Pokud potřebujete lékaře, zavolejte nám a pomůžeme.'],
+
+    leave_h: ['Odlazak', 'Departure', 'Abreise', 'Wyjazd', 'Odjezd'],
+    checkout_h: ['Odjava do 10:00', 'Check-out by 10:00', 'Check-out bis 10:00 Uhr', 'Wymeldowanie do 10:00', 'Check-out do 10:00'],
+    checkout_p: [
+      'Ako vam treba kasnija odjava, pitajte nas dan ranije.',
+      'If you would like a later check-out, ask us the day before.',
+      'Wenn Sie später auschecken möchten, fragen Sie uns am Vortag.',
+      'Jeśli chcecie wymeldować się później, zapytajcie nas dzień wcześniej.',
+      'Pokud chcete odjet později, zeptejte se nás den předem.'],
+    keys_h: ['Ključevi', 'Keys', 'Schlüssel', 'Klucze', 'Klíče'],
+    keys_p: [
+      'Ključeve predajte Jadranki ili ih ostavite onako kako ste se dogovorili.',
+      'Hand the keys to Jadranka or leave them as agreed.',
+      'Geben Sie die Schlüssel Jadranka oder hinterlassen Sie sie wie vereinbart.',
+      'Oddajcie klucze Jadrance albo zostawcie je tak, jak się umówiliście.',
+      'Předejte klíče Jadrance, nebo je nechte tak, jak jste se domluvili.'],
+    review_h: ['Recenzija', 'Your review', 'Ihre Bewertung', 'Opinia', 'Recenze'],
+    review_p: [
+      'Ako vam je bilo lijepo, vaša recenzija nam puno znači. Hvala vam!',
+      'If you enjoyed your stay, a review means a lot to us. Thank you!',
+      'Wenn es Ihnen gefallen hat, freuen wir uns sehr über eine Bewertung. Danke!',
+      'Jeśli pobyt się udał, wasza opinia wiele dla nas znaczy. Dziękujemy!',
+      'Pokud se vám u nás líbilo, vaše recenze pro nás hodně znamená. Děkujeme!'],
+    back_h: ['Dođite opet!', 'Come back soon!', 'Bis bald!', 'Wracajcie do nas!', 'Přijeďte zas!'],
+    back_p: [
+      'Sljedeći put rezervirajte izravno kod nas na mimice.hr, bez provizije platformi.',
+      'Next time, book directly with us at mimice.hr, with no platform fees.',
+      'Buchen Sie beim nächsten Mal direkt bei uns auf mimice.hr, ohne Plattformgebühren.',
+      'Następnym razem rezerwujcie bezpośrednio u nas na mimice.hr, bez prowizji platform.',
+      'Příště rezervujte přímo u nás na mimice.hr, bez poplatků platformám.'],
+    back_btn: ['Pošalji upit', 'Send an inquiry', 'Anfrage senden', 'Wyślij zapytanie', 'Odeslat poptávku']
+  };
+
+  var LANGS = ['hr', 'en', 'de', 'pl', 'cs'];
+  var STORAGE_KEY = 'jadranka-lang'; // same key as the main site
+  var lang = 'hr';
+
+  function t(key) { var e = T[key]; if (!e) return ''; return e[LANGS.indexOf(lang)] || e[0]; }
+
+  function pickLang() {
+    var saved = null;
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    if (saved && LANGS.indexOf(saved) > -1) return saved;
+    var nav = (navigator.languages || [navigator.language || 'hr']);
+    for (var i = 0; i < nav.length; i++) {
+      var code = String(nav[i]).slice(0, 2).toLowerCase();
+      if (LANGS.indexOf(code) > -1) return code;
+      if (code === 'sk') return 'cs';
+    }
+    return 'en';
+  }
+
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+  function renderWifi() {
+    var box = document.getElementById('wifi-cards');
+    var html = '';
+    ['stan', 'istok'].forEach(function (id) {
+      var w = WIFI[id];
+      html += '<div class="card"><h3>' + esc(t('wifi_apt_' + id)) + '</h3>';
+      if (w.ssid && w.pass) {
+        html += '<div class="wifi-row"><span class="muted">' + esc(t('wifi_net')) + '</span><code>' + esc(w.ssid) + '</code></div>';
+        html += '<div class="wifi-row"><span class="muted">' + esc(t('wifi_pass')) + '</span><code>' + esc(w.pass) + '</code>' +
+                '<button class="btn copy" data-copy="' + esc(w.pass) + '">' + esc(t('wifi_copy')) + '</button></div>';
+      } else {
+        html += '<p class="muted">' + esc(t('wifi_missing')) + '</p>';
+      }
+      html += '</div>';
+    });
+    box.innerHTML = html;
+    box.querySelectorAll('[data-copy]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var done = function () { b.textContent = t('wifi_copied'); setTimeout(function () { b.textContent = t('wifi_copy'); }, 2000); };
+        if (navigator.clipboard) navigator.clipboard.writeText(b.getAttribute('data-copy')).then(done, done); else done();
+      });
+    });
+  }
+
+  function apply(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    try { localStorage.setItem(STORAGE_KEY, l); } catch (e) {}
+    document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t(el.getAttribute('data-t')); });
+    document.querySelectorAll('[data-lang]').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === l); });
+    document.title = t('eyebrow') + ' | Apartmani Jadranka Mimice';
+    renderWifi();
+  }
+
+  document.querySelectorAll('[data-lang]').forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+  });
+  apply(pickLang());
+  </script>
+</body>
+</html>
